@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://sw2ms1tl7k0f"]
+
+[ext_resource type="Script" path="res://area_3d.gd" id="1_tjhsd"]
+[ext_resource type="PackedScene" uid="uid://ct2n1d6tilckj" path="res://3d_models/bonhomme_en_mousse.tscn" id="2_hfstq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6ni37"]
+radius = 4.6
+
+[node name="Area3D" type="Area3D"]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_tjhsd")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_6ni37")
+
+[node name="BonhommeEnMousse" parent="." instance=ExtResource("2_hfstq")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.04
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

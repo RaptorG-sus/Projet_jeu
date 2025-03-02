@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://yg6kw0cdou1o"]
+
+[ext_resource type="Script" path="res://scripts/scripts_test/scene_test.gd" id="1_qe2my"]
+[ext_resource type="PackedScene" uid="uid://yxnxe0jib0vn" path="res://scene/test_map/test_map.tscn" id="2_fpj1o"]
+[ext_resource type="PackedScene" uid="uid://dmyjiy15ry37t" path="res://scene/turret_scene/test_turret.tscn" id="3_8qe15"]
+[ext_resource type="PackedScene" uid="uid://sw2ms1tl7k0f" path="res://area_3d.tscn" id="4_t0rts"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nbbgv"]
+sky_top_color = Color(0.682353, 0.431373, 0.298039, 1)
+sky_horizon_color = Color(0, 0.710246, 0.967064, 1)
+sky_curve = 0.310579
+
+[sub_resource type="Sky" id="Sky_3hnpm"]
+sky_material = SubResource("ProceduralSkyMaterial_nbbgv")
+process_mode = 3
+
+[sub_resource type="Environment" id="Environment_2e04e"]
+background_mode = 2
+background_color = Color(0.728305, 0.763126, 0.917426, 1)
+background_energy_multiplier = 1.89
+sky = SubResource("Sky_3hnpm")
+ambient_light_source = 2
+ambient_light_color = Color(0.737193, 0.737193, 0.737193, 1)
+ambient_light_energy = 0.26
+ssao_radius = 14.95
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+
+[node name="scene_test" type="Node3D"]
+script = ExtResource("1_qe2my")
+
+[node name="map_test" parent="." instance=ExtResource("2_fpj1o")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2e04e")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.937889, 0.346936, 0, -0.346936, -0.937889, 0, 2.70024, 9.00832)
+shadow_enabled = true
+
+[node name="turret_test" parent="." instance=ExtResource("3_8qe15")]
+transform = Transform3D(0.0195115, 0, -0.99981, 0, 1, 0, 0.99981, 0, 0.0195115, 2.55031, 0.0552773, 2.07011)
+
+[node name="Area3D" parent="." instance=ExtResource("4_t0rts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82168, 0, 0)
+
+[node name="Projectiles" type="Node3D" parent="."]

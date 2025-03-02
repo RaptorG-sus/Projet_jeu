@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://1bsb54j21b0n"]
+
+[ext_resource type="Texture2D" uid="uid://v6ch1yy5wgct" path="res://image/carte archer.png" id="1_mstwe"]
+[ext_resource type="Script" path="res://scripts/scripts_card/archer_card.gd" id="1_oq250"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mx3qy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_324ev"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_21sgu"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_7x1au"]
+resource_name = "card_go_down"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.5, 0, 0.4, 1, 0, 0, 0)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 1.25, 1.25, 1.25, 0.4, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_ur7lj"]
+resource_name = "test"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.4, 1, 0, 0.5, 0)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.4, 1, 1.25, 1.25, 1.25)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dsam4"]
+_data = {
+"RESET": SubResource("Animation_21sgu"),
+"card_go_down": SubResource("Animation_7x1au"),
+"test": SubResource("Animation_ur7lj")
+}
+
+[node name="mouse_box" type="Area3D"]
+process_mode = 3
+monitoring = false
+script = ExtResource("1_oq250")
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.22977, 0, 0, 0, 1.86835, 0, 0, 0, 0.0977017, 0, -0.54, 0)
+shape = SubResource("BoxShape3D_mx3qy")
+
+[node name="card" type="Sprite3D" parent="."]
+material_overlay = SubResource("StandardMaterial3D_324ev")
+texture_filter = 0
+texture = ExtResource("1_mstwe")
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dsam4")
+}
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

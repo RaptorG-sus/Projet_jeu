@@ -1,0 +1,1 @@
+extends "res://scripts/scripts_enemy/enemy_moov.gd"

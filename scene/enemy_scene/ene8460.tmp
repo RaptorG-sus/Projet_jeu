@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://2p1go4ydb3q8"]
+
+[ext_resource type="Script" path="res://scripts/scripts_enemy/enemy_test.gd" id="1_4cwia"]
+[ext_resource type="Texture2D" uid="uid://bup5vcjwq0pdt" path="res://1636384668859.png" id="1_latbq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0dn6e"]
+albedo_texture = ExtResource("1_latbq")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sf0td"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5gnqe"]
+
+[node name="enemy_test" type="PathFollow3D"]
+script = ExtResource("1_4cwia")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_0dn6e")
+mesh = SubResource("CapsuleMesh_sf0td")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_5gnqe")
