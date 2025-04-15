@@ -3,8 +3,9 @@ extends Area3D
 
 @onready var enemy_pos :Vector3
 @onready var parent_pos :Vector3
-
-var speed = 25
+@onready var damage
+@onready var pierce
+@onready var speed
 
 
 func _process(delta: float) -> void:
@@ -26,3 +27,10 @@ func vecteur_directeur(p: Vector3, e: Vector3) -> Vector3:
 
 func _on_timer_timeout() -> void:
 	queue_free()
+
+
+func _on_area_entered(area:Area3D) -> void:
+	if pierce == 1:			#inflige les dégats avant de soustraire le "pierce", donc fait faire n+1
+		queue_free()
+	pierce -= 1 
+

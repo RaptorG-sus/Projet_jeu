@@ -20,7 +20,7 @@ void fragment() {
     pixel_uv /= screen_res;
 
     // Échantillonnage ultra net sans interpolation
-    vec4 col = textureLod(SCREEN_TEXTURE, pixel_uv, 0.0); 
+    vec4 col = textureLod(SCREEN_TEXTURE, pixel_uv, 0.0);
 
     // Quantification des couleurs pour un effet encore plus net
     col.rgb = floor(col.rgb * color_steps) / color_steps;

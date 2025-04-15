@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvwvu8or8bj31"]
+
+[ext_resource type="Script" uid="uid://b8dpej75g2tc5" path="res://scripts/scripts_control/point_de_vie.gd" id="1_hnryi"]
+[ext_resource type="Texture2D" uid="uid://cq1p77i6frqep" path="res://image/koeur.png" id="2_4s25y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4s25y"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[node name="point_de_vie" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_hnryi")
+
+[node name="TextEdit" type="Label" parent="."]
+layout_mode = 0
+offset_right = 81.0
+offset_bottom = 70.0
+label_settings = SubResource("LabelSettings_4s25y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 78.0
+offset_right = 142.0
+offset_bottom = 64.0
+texture = ExtResource("2_4s25y")

@@ -9,15 +9,20 @@ var enemy_data = GameData.enemy_data
 var array_card = []
 
 @export var life = 50
+@export var mana = 0
+@export var piece = 50
+
+func _ready() -> void:
+	$HUD/Pass_wave.inter_wave(number_wave)
 
 func _process(delta):
 	if Input.is_action_just_pressed("start"):
 		spawn_enemy()
+		piece += number_wave*10
 		if len(wave_data) != number_wave + 1:
 			number_wave += 1
 	if Input.is_action_just_pressed("spawn_card_temp"):
 		spawn_card()
-		
 	if life <= 0:
 		print("dead!")
 
@@ -26,12 +31,12 @@ func spawn_enemy():
 		print(i)
 		for j in range(i[1]):
 			var new_enemy = load("res://scene/enemy_scene/" + i[0] +".tscn").instantiate()
-			$map_test/Path.add_child(new_enemy, true)
-			await (get_tree().create_timer(i[2])).timeout
+			$node_environnement/map_test/Path.add_child(new_enemy, true)
+			await (get_tree().create_timer(i[2],false)).timeout
 
 func spawn_card():
 	var new_card = load("res://scene/card_scene/archer_card.tscn").instantiate()
-	$map_test/movement_camera/camera/Camera3D.add_child(new_card, true)
+	$node_environnement/map_test/movement_camera/camera/Camera3D.add_child(new_card, true)
 	array_card.append(new_card)
 	new_card.scale = Vector3(0.5,0.5,0.5)
 	new_card.position = Vector3(0, -0.7, -0.9)
@@ -48,14 +53,16 @@ func decal_card():
 			for i in range(len(array_card)):
 				print(i,compt)
 				array_card[i].position = Vector3(-(0.3+0.6*(compt - i)),-0.7,-0.9+i*0.01)
+				array_card[i].get_node("hitbox").position = Vector3(0,-0.44,-(len(array_card)-i)*0.01)
 		else:
 			for i in range(len(array_card)):
 				array_card[i].position = Vector3(-(0.6*(compt - i)),-0.7,-0.9+i*0.01)
+				array_card[i].get_node("hitbox").position = Vector3(0,-0.44,-(len(array_card)-i)*0.01)
 	else:
 		for i in range(len(array_card)):
 			print(i)
 			array_card[i].position = Vector3(-(0.93 - ((i*lenght_deck)/(len(array_card)-1))),-0.7,-0.9)
-			array_card[i].get_node("hitbox").position = Vector3(0,-0.54,(len(array_card)-i)*0.01)
+			array_card[i].get_node("hitbox").position = Vector3(0,-0.44,-(len(array_card)-i)*0.01)
 			print(array_card[i].position)
 
 						  

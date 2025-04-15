@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bm8ol5gxio6xg"]
 
-[ext_resource type="Script" path="res://scripts/scripts_enemy/enemy1.gd" id="1_4v03d"]
+[ext_resource type="Script" uid="uid://dpiugdg7umc2c" path="res://scripts/scripts_enemy/enemy1.gd" id="1_4v03d"]
 [ext_resource type="Texture2D" uid="uid://cbsudd2rnlu0s" path="res://image/icon.svg" id="2_vbn3h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7l056"]
@@ -17,6 +17,8 @@ loop = false
 script = ExtResource("1_4v03d")
 
 [node name="base" type="Area3D" parent="."]
+collision_layer = 5
+collision_mask = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="base"]
 material_override = SubResource("StandardMaterial3D_7l056")
@@ -24,3 +26,5 @@ mesh = SubResource("CapsuleMesh_7kvd0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="base"]
 shape = SubResource("CapsuleShape3D_d1w63")
+
+[connection signal="area_entered" from="base" to="." method="_on_base_area_entered"]

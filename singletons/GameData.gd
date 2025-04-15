@@ -3,7 +3,7 @@ extends Node
 var wave_data = [
 	# wave 1
 	[		# i
-		["enemy_base",2,0.5],	
+		["enemy_test",2,0.5],	
 		["enemy_test", 4, 0.2]	
 		],
 	# wave 2
@@ -35,4 +35,28 @@ var enemy_data = {
 
 var camera_data = {
 	"map_test" : [0, 0.25, 0.5, 0.75]
+}
+
+var turret_data = {
+	#nom de la tours
+	"turret_test" : {
+		# état initial dès qu'on la pose
+		"base" : {
+			#toute ces stats initial
+			"range" = 5,
+			"damage" = 10,
+			"attack_speed" = 0.5,
+			"bullet_speed" = 30,
+			"pierce" = 1
+		},
+		#type d'amélioration
+		"amelioration_magique" : {
+			#tier de l'amélioration (1 - 5)
+			"tier 1":{
+				#stat rajouté à l'état initial
+				"range" = 2,
+				"damage" = 5,
+			}
+		}
+	}
 }

@@ -1,12 +1,30 @@
 extends Control
 
-@onready var menu = preload("res://scene/control/menu_test.tscn")
+@export_file("*.tscn") var menu = "res://scene/control/menu_test.tscn"
 
 
-func _on_continue_pressed() -> void:
-	hide()
+func pause():
+	show()
+	$menu.play("open_menu")
+	get_tree().paused = true
+	
+func unpause():
+	$menu.play("close_menu")
 	get_tree().paused = false
 
+func _process(delta):
+	if Input.is_action_just_pressed("pause") and get_parent().get_node("death_menu").flag:
+		if get_tree().paused == false:
+			pause()
+		else:
+			unpause()
+			
+func _on_continue_pressed() -> void:
+	unpause()
 
 func _on_menu_pressed() -> void:
-	get_tree().change_scene_to_packed(menu)
+
+	get_tree().paused = false
+	queue_free()
+	get_tree().change_scene_to_file(menu)
+	

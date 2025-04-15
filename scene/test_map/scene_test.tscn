@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://yg6kw0cdou1o"]
+[gd_scene load_steps=13 format=3 uid="uid://yg6kw0cdou1o"]
 
-[ext_resource type="Script" path="res://scripts/scripts_test/scene_test.gd" id="1_qe2my"]
+[ext_resource type="Script" uid="uid://dumvwi74se3yj" path="res://scripts/scripts_test/Scene_Principal.gd" id="1_racit"]
 [ext_resource type="PackedScene" uid="uid://yxnxe0jib0vn" path="res://scene/test_map/test_map.tscn" id="2_fpj1o"]
-[ext_resource type="PackedScene" uid="uid://dmyjiy15ry37t" path="res://scene/turret_scene/test_turret.tscn" id="3_8qe15"]
-[ext_resource type="PackedScene" uid="uid://sw2ms1tl7k0f" path="res://area_3d.tscn" id="4_t0rts"]
+[ext_resource type="PackedScene" uid="uid://sw2ms1tl7k0f" path="res://scene/turret_scene/test_turret2.tscn" id="4_t0rts"]
+[ext_resource type="PackedScene" uid="uid://brcint81168kc" path="res://scene/control/pause.tscn" id="5_g32rf"]
+[ext_resource type="PackedScene" uid="uid://cvwvu8or8bj31" path="res://scene/HUD/point_de_vie.tscn" id="6_racit"]
+[ext_resource type="PackedScene" uid="uid://cxjw735l6bvop" path="res://scene/control/death_menu.tscn" id="7_v710u"]
+[ext_resource type="PackedScene" uid="uid://cie2prba35o4o" path="res://scene/control/piece.tscn" id="8_e1dmn"]
+[ext_resource type="PackedScene" uid="uid://dylj00q8xljlp" path="res://scene/HUD/point_de_mana.tscn" id="8_sn56u"]
+[ext_resource type="PackedScene" uid="uid://cphvftnt5nank" path="res://scene/control/pass_wave.tscn" id="9_e1dmn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nbbgv"]
 sky_top_color = Color(0.682353, 0.431373, 0.298039, 1)
@@ -26,22 +31,65 @@ ssao_radius = 14.95
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
 
-[node name="scene_test" type="Node3D"]
-script = ExtResource("1_qe2my")
+[node name="Scene_principal" type="Node3D"]
+script = ExtResource("1_racit")
 
-[node name="map_test" parent="." instance=ExtResource("2_fpj1o")]
+[node name="node_joueur" type="Node3D" parent="."]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_2e04e")
+[node name="turret" type="Node3D" parent="node_joueur"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="test_turret" parent="node_joueur/turret" instance=ExtResource("4_t0rts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.891309, 0, 0.91747)
+
+[node name="Projectiles" type="Node3D" parent="node_joueur"]
+
+[node name="node_enemy" type="Node3D" parent="."]
+
+[node name="node_environnement" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="node_environnement"]
 transform = Transform3D(1, 0, 0, 0, -0.937889, 0.346936, 0, -0.346936, -0.937889, 0, 2.70024, 9.00832)
 shadow_enabled = true
 
-[node name="turret_test" parent="." instance=ExtResource("3_8qe15")]
-transform = Transform3D(0.0195115, 0, -0.99981, 0, 1, 0, 0.99981, 0, 0.0195115, 2.55031, 0.0552773, 2.07011)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="node_environnement"]
+environment = SubResource("Environment_2e04e")
 
-[node name="Area3D" parent="." instance=ExtResource("4_t0rts")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82168, 0, 0)
+[node name="map_test" parent="node_environnement" instance=ExtResource("2_fpj1o")]
 
-[node name="Projectiles" type="Node3D" parent="."]
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="pause" parent="HUD" instance=ExtResource("5_g32rf")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 1900.0
+offset_bottom = 1060.0
+
+[node name="point de vie" parent="HUD" instance=ExtResource("6_racit")]
+layout_mode = 1
+offset_right = 226.0
+offset_bottom = 55.0
+
+[node name="death_menu" parent="HUD" instance=ExtResource("7_v710u")]
+layout_mode = 1
+
+[node name="PointDeMana" parent="HUD" instance=ExtResource("8_sn56u")]
+layout_mode = 1
+offset_left = 1781.0
+offset_right = 1781.0
+
+[node name="piece" parent="HUD" instance=ExtResource("8_e1dmn")]
+layout_mode = 1
+offset_left = 1773.0
+offset_top = 51.0
+offset_right = 1773.0
+offset_bottom = 51.0
+
+[node name="Pass_wave" parent="HUD" instance=ExtResource("9_e1dmn")]
+layout_mode = 1
+offset_right = 1880.0
+offset_bottom = 1040.0

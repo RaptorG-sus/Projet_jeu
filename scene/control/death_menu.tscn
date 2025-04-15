@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://brcint81168kc"]
+[gd_scene load_steps=9 format=3 uid="uid://cxjw735l6bvop"]
 
-[ext_resource type="Script" uid="uid://c61xkq0ekf8ie" path="res://scripts/scripts_control/pause.gd" id="1_k17ac"]
-[ext_resource type="StyleBox" uid="uid://bj5t7gonyuni8" path="res://fichier_tres/layout_button_menu_hover.tres" id="1_t4vd3"]
-[ext_resource type="StyleBox" uid="uid://bcaqsj0r8dkly" path="res://fichier_tres/layout_button_menu.tres" id="2_q7s2i"]
+[ext_resource type="Script" uid="uid://6rhwkbkcbr7j" path="res://scripts/scripts_control/death_menu.gd" id="1_bofn5"]
+[ext_resource type="StyleBox" uid="uid://bj5t7gonyuni8" path="res://fichier_tres/layout_button_menu_hover.tres" id="1_e21s1"]
+[ext_resource type="StyleBox" uid="uid://bcaqsj0r8dkly" path="res://fichier_tres/layout_button_menu.tres" id="2_bofn5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmr4m"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5722"]
 bg_color = Color(0.118581, 0.118581, 0.118581, 0.341176)
 border_width_left = 2
 border_width_top = 2
@@ -140,28 +140,19 @@ _data = {
 &"open_menu": SubResource("Animation_jm543")
 }
 
-[node name="pause" type="Control"]
+[node name="death_menu" type="Control"]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -960.0
-offset_top = -540.0
-offset_right = 960.0
-offset_bottom = 540.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-script = ExtResource("1_k17ac")
-metadata/_edit_use_anchors_ = true
+script = ExtResource("1_bofn5")
 
 [node name="Control" type="Control" parent="."]
 visible = false
+layout_mode = 3
 anchors_preset = 0
 offset_left = 1.0
 offset_top = 1.0
@@ -177,10 +168,10 @@ anchor_left = 0.01
 anchor_top = 0.019
 anchor_right = 0.01
 anchor_bottom = 0.019
-offset_left = 490.8
-offset_top = 481.48
-offset_right = 902.8
-offset_bottom = 584.48
+offset_left = 423.8
+offset_top = 519.48
+offset_right = 835.8
+offset_bottom = 622.48
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
@@ -196,7 +187,7 @@ offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(175, 300)
-theme_override_styles/panel = SubResource("StyleBoxFlat_dmr4m")
+theme_override_styles/panel = SubResource("StyleBoxFlat_k5722")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
@@ -218,37 +209,30 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(1.78084e-06, 0.307123, 0.406222, 1)
 theme_override_font_sizes/font_size = 60
-text = "PAUSE"
+text = "DEAD !"
 horizontal_alignment = 1
 
-[node name="continue" type="Button" parent="Control/VBoxContainer"]
+[node name="retry" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = ExtResource("1_t4vd3")
-theme_override_styles/normal = ExtResource("2_q7s2i")
-text = "CONTINUE"
-
-[node name="settings" type="Button" parent="Control/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = ExtResource("1_t4vd3")
-theme_override_styles/normal = ExtResource("2_q7s2i")
-text = "SETTINGS"
+theme_override_styles/hover = ExtResource("1_e21s1")
+theme_override_styles/normal = ExtResource("2_bofn5")
+text = "RETRY
+"
 
 [node name="menu" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = ExtResource("1_t4vd3")
-theme_override_styles/normal = ExtResource("2_q7s2i")
+theme_override_styles/hover = ExtResource("1_e21s1")
+theme_override_styles/normal = ExtResource("2_bofn5")
 text = "MENU PRINCIPAL"
 
-[node name="menu" type="AnimationPlayer" parent="."]
+[node name="death_menu_animation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_kxqp7")
 }
 
-[connection signal="pressed" from="Control/VBoxContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/menu" to="." method="_on_menu_pressed"]

@@ -12,7 +12,8 @@ config_version=5
 
 config/name="Test Td"
 run/main_scene="res://scene/control/menu_test.tscn"
-config/features=PackedStringArray("4.3", "C#", "Mobile")
+config/features=PackedStringArray("4.4", "Mobile")
+boot_splash/bg_color=Color(0, 0.146494, 0.262093, 1)
 config/icon="res://icon.svg"
 
 [autoload]

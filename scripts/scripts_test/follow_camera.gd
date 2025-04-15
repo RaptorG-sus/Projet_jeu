@@ -25,9 +25,6 @@ func _process(delta: float) -> void:
 		position_cam.emit(global_position)
 		pos = (pos - 1)%len(camera_data[get_parent().get_parent().name]) 
 		progress_ratio = camera_data[get_parent().get_parent().name][pos]
-	if Input.is_action_just_pressed("pause"):
-		$pause.show()
-		get_tree().get_tree().paused = true
 	
 
 
