@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://6ysq2k360mfd"]
 
-[ext_resource type="Script" uid="uid://brcfv12et7e1n" path="res://scripts/scripts_card/test_card.gd" id="1_nfhtl"]
-[ext_resource type="Texture2D" uid="uid://ownrme6s6ieg" path="res://image/carte_test.png" id="2_nfhtl"]
+[ext_resource type="Script" path="res://scripts/scripts_card/test_card.gd" id="1_nfhtl"]
+[ext_resource type="Texture2D" uid="uid://b3qao8rfs888g" path="res://image/test_card.png" id="2_nfhtl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mx3qy"]
 size = Vector3(1.32, 1.679, 0.029)

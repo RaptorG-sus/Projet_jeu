@@ -61,4 +61,4 @@ var turret_data = {
 	}
 }
 
-var card_data = ["archer_card","test_card"]
+var card_data = [["archer_card","carte d'archer"],["test_card","carte test"]]

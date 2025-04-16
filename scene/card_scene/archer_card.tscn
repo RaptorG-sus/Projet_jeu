@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://1bsb54j21b0n"]
 
-[ext_resource type="Texture2D" uid="uid://boyxepbn2u1vd" path="res://image/carte archer.png" id="1_mstwe"]
+[ext_resource type="Texture2D" uid="uid://boyxepbn2u1vd" path="res://image/archer_card.png" id="1_mstwe"]
 [ext_resource type="Script" uid="uid://dc88wu60u30e7" path="res://scripts/scripts_card/archer_card.gd" id="1_oq250"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mx3qy"]
