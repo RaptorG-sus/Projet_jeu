@@ -60,3 +60,5 @@ var turret_data = {
 		}
 	}
 }
+
+var card_data = ["archer_card","test_card"]

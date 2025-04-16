@@ -22,7 +22,7 @@ func _process(delta):
 		if len(wave_data) != number_wave + 1:
 			number_wave += 1
 	if Input.is_action_just_pressed("spawn_card_temp"):
-		spawn_card()
+		spawn_card("archer_card")
 	if life <= 0:
 		print("dead!")
 
@@ -34,8 +34,9 @@ func spawn_enemy():
 			$node_environnement/map_test/Path.add_child(new_enemy, true)
 			await (get_tree().create_timer(i[2],false)).timeout
 
-func spawn_card():
-	var new_card = load("res://scene/card_scene/archer_card.tscn").instantiate()
+func spawn_card(name_card):
+	name_card = "res://scene/card_scene/" + name_card + ".tscn"
+	var new_card = load(name_card).instantiate()
 	$node_environnement/map_test/movement_camera/camera/Camera3D.add_child(new_card, true)
 	array_card.append(new_card)
 	new_card.scale = Vector3(0.5,0.5,0.5)

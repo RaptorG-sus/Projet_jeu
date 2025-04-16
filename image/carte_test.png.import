@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boyxepbn2u1vd"
-path.s3tc="res://.godot/imported/carte archer.png-f29768bdc5520c24fdc0cce14be43073.s3tc.ctex"
+uid="uid://ownrme6s6ieg"
+path.s3tc="res://.godot/imported/carte_test.png-db8cda13bf6d5556afc1e1d3210efdea.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://image/carte archer.png"
-dest_files=["res://.godot/imported/carte archer.png-f29768bdc5520c24fdc0cce14be43073.s3tc.ctex"]
+source_file="res://image/carte_test.png"
+dest_files=["res://.godot/imported/carte_test.png-db8cda13bf6d5556afc1e1d3210efdea.s3tc.ctex"]
 
 [params]
 

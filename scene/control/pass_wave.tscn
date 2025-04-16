@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cphvftnt5nank"]
+[gd_scene load_steps=14 format=3 uid="uid://cphvftnt5nank"]
 
 [ext_resource type="Script" uid="uid://d2ut6fn8a8wfg" path="res://scripts/scripts_control/pass_wave.gd" id="1_3oseq"]
-[ext_resource type="Texture2D" uid="uid://v6ch1yy5wgct" path="res://image/carte archer.png" id="1_36qp3"]
+[ext_resource type="Texture2D" uid="uid://boyxepbn2u1vd" path="res://image/carte archer.png" id="1_36qp3"]
 [ext_resource type="StyleBox" uid="uid://bj5t7gonyuni8" path="res://fichier_tres/layout_button_menu_hover.tres" id="2_se3di"]
+[ext_resource type="Texture2D" uid="uid://b3qao8rfs888g" path="res://image/test_card.png" id="2_uoe0k"]
 [ext_resource type="StyleBox" uid="uid://bcaqsj0r8dkly" path="res://fichier_tres/layout_button_menu.tres" id="3_3oseq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_00php"]
@@ -296,7 +297,7 @@ vertical_alignment = 1
 layout_mode = 0
 offset_right = 247.5
 offset_bottom = 315.0
-icon = ExtResource("1_36qp3")
+icon = ExtResource("2_uoe0k")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -442,4 +443,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_m6j0y")
 }
 
+[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer/card_1/card" to="." method="_on_card_pressed"]
 [connection signal="pressed" from="Shop/pass_wave" to="." method="_on_pass_wave_pressed"]

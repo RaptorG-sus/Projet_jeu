@@ -1,5 +1,6 @@
 extends Control
 
+var liste_card = GameData.card_data
 
 func shop_on():
 	$animationWave.play("shop_go_up")
@@ -21,8 +22,18 @@ func inter_wave(number_wave):
 	#if marchant alors :
 	await (get_tree().create_timer(0.7,false)).timeout
 	shop_on()
+
 	
 
 
 func _on_pass_wave_pressed() -> void:
 	shop_down()
+
+func genere_card():
+	var liste_generer = []
+	for i in range(6):
+		liste_generer.append(liste_card[randi_range(0,len(liste_card)-1)])
+
+
+func _on_card_pressed() -> void:
+	$"../..".spawn_card("test_card")

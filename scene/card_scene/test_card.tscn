@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://1bsb54j21b0n"]
+[gd_scene load_steps=9 format=3 uid="uid://6ysq2k360mfd"]
 
-[ext_resource type="Texture2D" uid="uid://boyxepbn2u1vd" path="res://image/carte archer.png" id="1_mstwe"]
-[ext_resource type="Script" uid="uid://dc88wu60u30e7" path="res://scripts/scripts_card/archer_card.gd" id="1_oq250"]
+[ext_resource type="Script" uid="uid://brcfv12et7e1n" path="res://scripts/scripts_card/test_card.gd" id="1_nfhtl"]
+[ext_resource type="Texture2D" uid="uid://ownrme6s6ieg" path="res://image/carte_test.png" id="2_nfhtl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mx3qy"]
 size = Vector3(1.32, 1.679, 0.029)
@@ -63,7 +63,7 @@ _data = {
 
 [node name="mouse_box" type="Area3D"]
 monitoring = false
-script = ExtResource("1_oq250")
+script = ExtResource("1_nfhtl")
 
 [node name="hitbox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44, 0)
@@ -73,18 +73,12 @@ shape = SubResource("BoxShape3D_mx3qy")
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, -0.44, 0)
 material_overlay = SubResource("StandardMaterial3D_324ev")
 texture_filter = 0
-texture = ExtResource("1_mstwe")
+texture = ExtResource("2_nfhtl")
 
 [node name="animation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_dsam4")
 }
-
-[node name="sprite" type="Sprite3D" parent="."]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.218632, 0)
-visible = false
-texture_filter = 0
-texture = ExtResource("1_mstwe")
 
 [connection signal="mouse_entered" from="." to="." method="_mouse_enter"]
 [connection signal="mouse_exited" from="." to="." method="_mouse_exit"]
