@@ -1,7 +1,8 @@
 extends Control
 
 var liste_card = GameData.card_data
-var liste_generer = []
+@export var liste_generer = []
+@export var liste_buyed = [0,0,0,0,0,0]
 
 func shop_on():
 	$animationWave.play("shop_go_up")
@@ -45,21 +46,7 @@ func create_card(card_name,number_card,position):
 
 func _on_pass_wave_pressed() -> void:
 	shop_down()
-
-func _on_card_1_button_pressed() -> void:
-	$"../..".spawn_card(liste_generer[0][0])
-
-func _on_card_2_button_pressed() -> void:
-	$"../..".spawn_card(liste_generer[1][0])
-
-func _on_card_3_button_pressed() -> void:
-	$"../..".spawn_card(liste_generer[2][0])
-
-func _on_card_4_button_pressed() -> void:
-	$"../..".spawn_card(liste_generer[3][0])
-
-func _on_card_5_button_pressed() -> void:
-	$"../..".spawn_card(liste_generer[4][0])
-
-func _on_card_6_button_pressed() -> void:
-	$"../..".spawn_card(liste_generer[5][0])
+	for i in range(len(liste_buyed)):
+		if liste_buyed[i]:
+			get_parent().get_parent().spawn_card(liste_generer[i][0])
+			
