@@ -1,10 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://cphvftnt5nank"]
+[gd_scene load_steps=20 format=3 uid="uid://cphvftnt5nank"]
 
 [ext_resource type="Script" uid="uid://d2ut6fn8a8wfg" path="res://scripts/scripts_control/pass_wave.gd" id="1_3oseq"]
 [ext_resource type="Texture2D" uid="uid://boyxepbn2u1vd" path="res://image/archer_card.png" id="1_36qp3"]
 [ext_resource type="StyleBox" uid="uid://bj5t7gonyuni8" path="res://fichier_tres/layout_button_menu_hover.tres" id="2_se3di"]
 [ext_resource type="Texture2D" uid="uid://b3qao8rfs888g" path="res://image/test_card.png" id="2_uoe0k"]
 [ext_resource type="StyleBox" uid="uid://bcaqsj0r8dkly" path="res://fichier_tres/layout_button_menu.tres" id="3_3oseq"]
+[ext_resource type="Script" uid="uid://bnubct6vsbktl" path="res://scripts/scripts_control/card_button/card_1_button.gd" id="3_hpfph"]
+[ext_resource type="Script" uid="uid://c5cool10dh8hv" path="res://scripts/scripts_control/card_button/card_2_button.gd" id="5_xnsof"]
+[ext_resource type="Script" uid="uid://b7er6yb7qvuq6" path="res://scripts/scripts_control/card_button/card_3_button.gd" id="6_lknth"]
+[ext_resource type="Script" uid="uid://ddoxbvn6r1m24" path="res://scripts/scripts_control/card_button/card_4_button.gd" id="7_css8y"]
+[ext_resource type="Script" uid="uid://c04ich8x26uua" path="res://scripts/scripts_control/card_button/card_5_button.gd" id="8_bplcw"]
+[ext_resource type="Script" uid="uid://cohxveldycswn" path="res://scripts/scripts_control/card_button/card_6_button.gd" id="9_ocken"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_00php"]
 font_size = 160
@@ -289,6 +295,7 @@ icon = ExtResource("2_uoe0k")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("3_hpfph")
 
 [node name="card_label" type="Label" parent="Shop/HBoxContainer/VBoxContainer1/card_1"]
 layout_mode = 0
@@ -312,6 +319,7 @@ icon = ExtResource("1_36qp3")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("5_xnsof")
 
 [node name="card_label" type="Label" parent="Shop/HBoxContainer/VBoxContainer1/card_2"]
 layout_mode = 0
@@ -339,6 +347,7 @@ icon = ExtResource("1_36qp3")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("6_lknth")
 
 [node name="card_label" type="Label" parent="Shop/HBoxContainer/VBoxContainer2/card_3"]
 layout_mode = 0
@@ -362,6 +371,7 @@ icon = ExtResource("1_36qp3")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("7_css8y")
 
 [node name="card_label" type="Label" parent="Shop/HBoxContainer/VBoxContainer2/card_4"]
 layout_mode = 0
@@ -385,10 +395,12 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 247.5
 offset_bottom = 315.0
+text = "bloup"
 icon = ExtResource("1_36qp3")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("8_bplcw")
 
 [node name="card_label" type="Label" parent="Shop/HBoxContainer/VBoxContainer3/card_5"]
 layout_mode = 0
@@ -412,6 +424,7 @@ icon = ExtResource("1_36qp3")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("9_ocken")
 
 [node name="card_label" type="Label" parent="Shop/HBoxContainer/VBoxContainer3/card_6"]
 layout_mode = 0
@@ -443,9 +456,15 @@ libraries = {
 }
 
 [connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer1/card_1/card_1_button" to="." method="_on_card_1_button_pressed"]
+[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer1/card_1/card_1_button" to="Shop/HBoxContainer/VBoxContainer1/card_1/card_1_button" method="_on_pressed"]
 [connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer1/card_2/card_2_button" to="." method="_on_card_2_button_pressed"]
+[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer1/card_2/card_2_button" to="Shop/HBoxContainer/VBoxContainer1/card_2/card_2_button" method="_on_pressed"]
 [connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer2/card_3/card_3_button" to="." method="_on_card_3_button_pressed"]
+[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer2/card_3/card_3_button" to="Shop/HBoxContainer/VBoxContainer2/card_3/card_3_button" method="_on_pressed"]
 [connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer2/card_4/card_4_button" to="." method="_on_card_4_button_pressed"]
+[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer2/card_4/card_4_button" to="Shop/HBoxContainer/VBoxContainer2/card_4/card_4_button" method="_on_pressed"]
 [connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer3/card_5/card_5_button" to="." method="_on_card_5_button_pressed"]
+[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer3/card_5/card_5_button" to="Shop/HBoxContainer/VBoxContainer3/card_5/card_5_button" method="_on_pressed"]
 [connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer3/card_6/card_6_button" to="." method="_on_card_6_button_pressed"]
+[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer3/card_6/card_6_button" to="Shop/HBoxContainer/VBoxContainer3/card_6/card_6_button" method="_on_pressed"]
 [connection signal="pressed" from="Shop/pass_wave" to="." method="_on_pass_wave_pressed"]
