@@ -19,6 +19,7 @@ func _ready() -> void:
 
 func _process(delta):
 	if number_enemy == 0:
+		piece += number_wave*10
 		count_enemy()
 		$HUD/Pass_wave.inter_wave(number_wave)
 	if Input.is_action_just_pressed("start"):
@@ -36,7 +37,6 @@ func spawn_enemy():
 			$node_environnement/map_test/Path.add_child(new_enemy, true)
 			await (get_tree().create_timer(i[2],false)).timeout
 	number_wave += 1
-	piece += number_wave*10
 	
 
 func count_enemy():

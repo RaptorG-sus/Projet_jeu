@@ -63,20 +63,10 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="pause" parent="HUD" instance=ExtResource("5_g32rf")]
-layout_mode = 1
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 1900.0
-offset_bottom = 1060.0
-
 [node name="point de vie" parent="HUD" instance=ExtResource("6_racit")]
 layout_mode = 1
 offset_right = 226.0
 offset_bottom = 55.0
-
-[node name="death_menu" parent="HUD" instance=ExtResource("7_v710u")]
-layout_mode = 1
 
 [node name="PointDeMana" parent="HUD" instance=ExtResource("8_sn56u")]
 layout_mode = 1
@@ -90,16 +80,26 @@ layout_mode = 1
 offset_top = 60.0
 offset_bottom = 60.0
 
-[node name="Pass_wave" parent="HUD" instance=ExtResource("9_e1dmn")]
-layout_mode = 1
-offset_right = 1880.0
-offset_bottom = 1040.0
-
 [node name="NextWave" parent="HUD" instance=ExtResource("10_uefgs")]
 layout_mode = 1
 offset_left = 1565.0
 offset_top = -1.0
 offset_right = 1565.0
 offset_bottom = -1.0
+
+[node name="Pass_wave" parent="HUD" instance=ExtResource("9_e1dmn")]
+layout_mode = 1
+offset_right = 1880.0
+offset_bottom = 1040.0
+
+[node name="death_menu" parent="HUD" instance=ExtResource("7_v710u")]
+layout_mode = 1
+
+[node name="pause" parent="HUD" instance=ExtResource("5_g32rf")]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 1900.0
+offset_bottom = 1060.0
 
 [connection signal="enemy_died" from="node_joueur/turret/test_turret" to="." method="_on_test_turret_enemy_died"]

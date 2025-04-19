@@ -17,11 +17,11 @@ func wave_down():
 	$animationWave.play("wave_go_down")
 
 func inter_wave(number_wave):
-	$show_wave/wave_label.text = "wave " + str(number_wave)
+	$show_wave/wave_label.text = "wave " + str(number_wave+1)
 	wave_up()
 	await (get_tree().create_timer(3,false)).timeout
 	wave_down()
-	#if marchant alors :
+	#if marchand alors :
 	await (get_tree().create_timer(0.7,false)).timeout
 	shop_on()
 	genere_card()
@@ -49,4 +49,7 @@ func _on_pass_wave_pressed() -> void:
 	for i in range(len(liste_buyed)):
 		if liste_buyed[i]:
 			get_parent().get_parent().spawn_card(liste_generer[i][0])
+	liste_buyed = [0,0,0,0,0,0]
+	await (get_tree().create_timer(3, false)).timeout
+	$"../..".spawn_enemy()
 			
