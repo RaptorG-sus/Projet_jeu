@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://yg6kw0cdou1o"]
+[gd_scene load_steps=14 format=3 uid="uid://yg6kw0cdou1o"]
 
 [ext_resource type="Script" uid="uid://dumvwi74se3yj" path="res://scripts/scripts_test/Scene_Principal.gd" id="1_racit"]
 [ext_resource type="PackedScene" uid="uid://yxnxe0jib0vn" path="res://scene/test_map/test_map.tscn" id="2_fpj1o"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cie2prba35o4o" path="res://scene/control/piece.tscn" id="8_e1dmn"]
 [ext_resource type="PackedScene" uid="uid://dylj00q8xljlp" path="res://scene/HUD/point_de_mana.tscn" id="8_sn56u"]
 [ext_resource type="PackedScene" uid="uid://cphvftnt5nank" path="res://scene/control/pass_wave.tscn" id="9_e1dmn"]
+[ext_resource type="PackedScene" uid="uid://c544xa6s1n28h" path="res://scene/control/next_wave.tscn" id="10_uefgs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nbbgv"]
 sky_top_color = Color(0.682353, 0.431373, 0.298039, 1)
@@ -79,17 +80,26 @@ layout_mode = 1
 
 [node name="PointDeMana" parent="HUD" instance=ExtResource("8_sn56u")]
 layout_mode = 1
-offset_left = 1781.0
-offset_right = 1781.0
+offset_left = -1.0
+offset_top = 113.0
+offset_right = -1.0
+offset_bottom = 113.0
 
 [node name="piece" parent="HUD" instance=ExtResource("8_e1dmn")]
 layout_mode = 1
-offset_left = 1773.0
-offset_top = 51.0
-offset_right = 1773.0
-offset_bottom = 51.0
+offset_top = 60.0
+offset_bottom = 60.0
 
 [node name="Pass_wave" parent="HUD" instance=ExtResource("9_e1dmn")]
 layout_mode = 1
 offset_right = 1880.0
 offset_bottom = 1040.0
+
+[node name="NextWave" parent="HUD" instance=ExtResource("10_uefgs")]
+layout_mode = 1
+offset_left = 1565.0
+offset_top = -1.0
+offset_right = 1565.0
+offset_bottom = -1.0
+
+[connection signal="enemy_died" from="node_joueur/turret/test_turret" to="." method="_on_test_turret_enemy_died"]
