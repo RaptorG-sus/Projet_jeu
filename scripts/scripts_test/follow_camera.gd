@@ -21,10 +21,12 @@ func _process(delta: float) -> void:
 		position_cam.emit(global_position)
 		pos = (pos + 1)%len(camera_data[get_parent().get_parent().name])
 		progress_ratio = camera_data[get_parent().get_parent().name][pos]
+		look_at(Vector3(0,0,0))
 	if Input.is_action_just_pressed("goto_right"):
 		position_cam.emit(global_position)
 		pos = (pos - 1)%len(camera_data[get_parent().get_parent().name]) 
 		progress_ratio = camera_data[get_parent().get_parent().name][pos]
+		look_at(Vector3(0,0,0))
 	
 
 

@@ -40,7 +40,7 @@ script = ExtResource("1_racit")
 [node name="turret" type="Node3D" parent="node_joueur"]
 
 [node name="test_turret" parent="node_joueur/turret" instance=ExtResource("4_t0rts")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.891309, 0, 0.91747)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38098, 0, -1.78962)
 
 [node name="Projectiles" type="Node3D" parent="node_joueur"]
 

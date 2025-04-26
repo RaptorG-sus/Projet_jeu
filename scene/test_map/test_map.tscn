@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://yxnxe0jib0vn"]
+[gd_scene load_steps=8 format=3 uid="uid://yxnxe0jib0vn"]
 
 [ext_resource type="PackedScene" uid="uid://4fsvivaac1s1" path="res://scene/props/camera.tscn" id="1_paxdi"]
+[ext_resource type="PackedScene" uid="uid://diw50aj4c668" path="res://3d_models/map_3.tscn" id="2_g8ioe"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8nhd1"]
 
@@ -12,61 +13,71 @@ albedo_color = Color(0, 0, 0, 1)
 [sub_resource type="Curve3D" id="Curve3D_vidy8"]
 bake_interval = 0.01
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.374432, 3.33786e-05, 0.142403, 0, 0, 0, 0, 0, 0, 6.15013, 3.33786e-05, 0.10506, 0, 0, 0, 0, 0, 0, 6.13768, 3.33786e-05, 4.79781, 0, 0, 0, 0, 0, 0, 11.7889, 3.33786e-05, 4.76047, 0, 0, 0, 0, 0, 0, 11.8636, 3.33786e-05, -1.99859, 0, 0, 0, 0, 0, 0, 16.519, 3.33786e-05, -1.82432),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -3.89664, 3.33786e-05, 0.723397, 0, 0, 0, 0, 0, 0, 3.14453, 3.33786e-05, 0.737818, 0, 0, 0, 0, 0, 0, 3.29027, 3.33786e-05, -1.66818, 0, 0, 0, 0, 0, 0, 5.89635, 3.33786e-05, -1.70552, 0, 0, 0, 0, 0, 0, 5.97087, 1.90735e-06, 3.3797, 0, 0, 0, 0, 0, 0, 7.48243, 0.648753, 3.45525, 0, 0, 0, 0, 0, 0, 9.64955, 0.652531, 3.40377, 0, 0, 0, 0, 0, 0, 10.9348, 0, 3.44037, 0, 0, 0, 0, 0, 0, 11.8217, 0, 3.40377, 0, 0, 0, 0, 0, 0, 11.9681, 0, -1.39079, 0, 0, 0, 0, 0, 0, 13.5785, 0, -1.46399, 0, 0, 0, 0, 0, 0, 13.6151, 0, 1.29851, 0, 0, 0, 0, 0, 0, 20.0949, 0, 1.36083),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 6
+point_count = 13
 
 [sub_resource type="Curve3D" id="Curve3D_tnlcv"]
 bake_interval = 0.01
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 5, 8, 0, 0, 0, 0, 0, 0, -10, 5, 0, 0, 0, 0, 0, 0, 0, 0, 5, -8, 0, 0, 0, 0, 0, 0, 10, 5, 0, 0, 0, 0, 0, 0, 0, 0, 5, 8, 0, 0, 0, 0, 0, 0, 0.033, 5, 8),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 5, 11, 0, 0, 0, 0, 0, 0, -12, 5, 0, 0, 0, 0, 0, 0, 0, 0, 5, -11, 0, 0, 0, 0, 0, 0, 12, 5, 0, 0, 0, 0, 0, 0, 0, 0, 5, 11),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
-point_count = 6
+point_count = 5
 
 [node name="map_test" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(16, 0, 0, 0, 0.116445, 0, 0, 0, 11.8, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_8nhd1")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(5.63116, 0, 0, 0, 0.347154, 0, 0, 0, 0.99744, -5.11997, 0.0370245, -1.56883)
+visible = false
 material_override = SubResource("StandardMaterial3D_60pdn")
 lod_bias = 0.001
 mesh = SubResource("BoxMesh_d3qpy")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
 transform = Transform3D(5.63116, 0, 0, 0, 0.347154, 0, 0, 0, 0.99744, 6.16187, 0.0370245, -3.54016)
+visible = false
 material_override = SubResource("StandardMaterial3D_60pdn")
 lod_bias = 0.001
 mesh = SubResource("BoxMesh_d3qpy")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
 transform = Transform3D(5.63116, 0, 0, 0, 0.347154, 0, 0, 0, 0.99744, 1.48261, 0.0370245, 3.07981)
+visible = false
 material_override = SubResource("StandardMaterial3D_60pdn")
 lod_bias = 0.001
 mesh = SubResource("BoxMesh_d3qpy")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.46146e-07, 0, 0.99744, 0, 0.347154, 0, -5.63116, 0, -4.35995e-08, -1.83214, 0.0370245, 0.753174)
+visible = false
 material_override = SubResource("StandardMaterial3D_60pdn")
 lod_bias = 0.001
 mesh = SubResource("BoxMesh_d3qpy")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.46146e-07, 0, 0.99744, 0, 0.347154, 0, -5.63116, 0, -4.35995e-08, 3.81712, 0.0370245, -0.219793)
+visible = false
 material_override = SubResource("StandardMaterial3D_60pdn")
 lod_bias = 0.001
 mesh = SubResource("BoxMesh_d3qpy")
 
 [node name="Path" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.02622, 0.360421, -1.72177)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98086, 0.360421, -1.72177)
 curve = SubResource("Curve3D_vidy8")
 
 [node name="movement_camera" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97843, 0)
 curve = SubResource("Curve3D_tnlcv")
 
 [node name="camera" parent="movement_camera" instance=ExtResource("1_paxdi")]
-transform = Transform3D(0.624271, 0, 0.780339, 0, 0.999322, 0, -0.780339, 0, 0.624271, 0, 5, 8)
+transform = Transform3D(0.675267, 0, 0.736655, 0, 0.999322, 0, -0.736655, 0, 0.675267, 0, 5, 11)
+
+[node name="map_3" parent="." instance=ExtResource("2_g8ioe")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)

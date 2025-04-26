@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://diw50aj4c668"]
+
+[ext_resource type="PackedScene" uid="uid://sgvo01n3neqb" path="res://3d_models/map_3.blend" id="1_3rr3b"]
+[ext_resource type="Shader" uid="uid://5phws30ppe4d" path="res://shaders/calcul_terre.gdshader" id="2_bqydr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2d35p"]
+render_priority = 0
+shader = ExtResource("2_bqydr")
+shader_parameter/grass = Color(0.215686, 0.364706, 0.0666667, 1)
+shader_parameter/dirt = Color(0.322615, 0.194975, 1.20327e-07, 1)
+
+[node name="map_3" instance=ExtResource("1_3rr3b")]
+
+[node name="Plane" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_2d35p")

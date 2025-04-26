@@ -12,7 +12,7 @@ albedo_texture = ExtResource("2_vbn3h")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d1w63"]
 
 [node name="enemy_base" type="PathFollow3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02222, 0)
+transform = Transform3D(0.754, 0, 0, 0, 0.754, 0, 0, 0, 0.754, 0, 1.02222, 0)
 loop = false
 script = ExtResource("1_4v03d")
 
