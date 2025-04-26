@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cphvftnt5nank"]
+[gd_scene load_steps=16 format=3 uid="uid://cphvftnt5nank"]
 
-[ext_resource type="Script" uid="uid://d2ut6fn8a8wfg" path="res://scripts/scripts_control/pass_wave.gd" id="1_3oseq"]
+[ext_resource type="Script" uid="uid://d2ut6fn8a8wfg" path="res://scripts/scripts_control/script_menu/pass_wave.gd" id="1_3oseq"]
 [ext_resource type="Texture2D" uid="uid://boyxepbn2u1vd" path="res://image/archer_card.png" id="1_36qp3"]
 [ext_resource type="StyleBox" uid="uid://bj5t7gonyuni8" path="res://fichier_tres/layout_button_menu_hover.tres" id="2_se3di"]
 [ext_resource type="Texture2D" uid="uid://b3qao8rfs888g" path="res://image/test_card.png" id="2_uoe0k"]
+[ext_resource type="Script" uid="uid://dp2gmvv5sbhsb" path="res://scripts/scripts_control/script_menu/shop/shop.gd" id="2_w4s2e"]
 [ext_resource type="StyleBox" uid="uid://bcaqsj0r8dkly" path="res://fichier_tres/layout_button_menu.tres" id="3_3oseq"]
 [ext_resource type="Script" uid="uid://c5wv0w8jaecwp" path="res://scripts/scripts_control/card_button/card_button.gd" id="3_hpfph"]
 
@@ -259,6 +260,7 @@ layout_mode = 2
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+script = ExtResource("2_w4s2e")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Shop"]
 layout_mode = 1

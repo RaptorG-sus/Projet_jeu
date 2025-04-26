@@ -7,8 +7,8 @@ var lenght_deck = 0.93*2
 var wave_data = GameData.wave_data
 var enemy_data = GameData.enemy_data
 var array_card = []
-var number_enemy = 0
 
+@export var number_enemy = 0
 @export var life = 50
 @export var mana = 0
 @export var piece = 50
@@ -41,7 +41,7 @@ func spawn_enemy():
 
 func count_enemy():
 	for i in wave_data[number_wave%len(wave_data)]:
-		number_enemy += i[1]
+		number_enemy += i[1] 
 
 
 func spawn_card(name_card):
@@ -77,6 +77,6 @@ func decal_card():
 			print(array_card[i].position)
 
 
-func _on_test_turret_enemy_died() -> void:
+func _on_enemy_died() -> void:
 	print("signal emit",number_enemy)
 	number_enemy -= 1

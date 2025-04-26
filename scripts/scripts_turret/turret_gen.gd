@@ -1,7 +1,5 @@
 extends Area3D
 
-signal enemy_died
-
 var projectile :PackedScene = preload("res://scene/props/projectile.tscn")
 var turret_data = GameData.turret_data
 
@@ -47,7 +45,6 @@ func _on_area_entered(area: Area3D) -> void:
 
 
 func _on_area_exited(area: Area3D) -> void:
-	enemy_died.emit()
 	liste_enemy.erase(area)
 	if len(liste_enemy) == 0:
 		$Timer.stop()

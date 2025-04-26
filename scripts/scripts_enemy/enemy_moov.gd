@@ -10,6 +10,8 @@ var mana_recu
 func _ready():
 	pass
 
+signal enemy_died
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if get_progress_ratio() == 0:
@@ -20,9 +22,11 @@ func _physics_process(delta):
 		damage = enemy_data[nom_enemy]["damage"]
 	move(delta)
 	if get_progress_ratio() == 1.0:
+		$"../../../..".number_enemy -= 1
 		queue_free()
 		get_parent().get_parent().get_parent().get_parent().life -= damage
 	if vie <= 0:
+		$"../../../..".number_enemy -= 1
 		queue_free()
 		get_parent().get_parent().get_parent().get_parent().mana += mana_recu
 
