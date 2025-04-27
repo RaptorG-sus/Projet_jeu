@@ -29,7 +29,7 @@ func smooth_rotation() -> void:
 func _on_timer_timeout() -> void:
 	var p = projectile.instantiate()
 
-	$"../.."/Projectiles.add_child(p)
+	$"../../.."/Projectiles.add_child(p)
 	p.global_position = global_position
 	p.enemy_pos = liste_enemy[0].global_position
 	p.parent_pos = global_position
@@ -48,3 +48,10 @@ func _on_area_exited(area: Area3D) -> void:
 	liste_enemy.erase(area)
 	if len(liste_enemy) == 0:
 		$Timer.stop()
+
+func _on_hit_box_joueur_input_event(camera:Node, event:InputEvent, event_position:Vector3, normal:Vector3, shape_idx:int) -> void:
+	print("test")
+
+
+func _on_hit_box_joueur_mouse_entered() -> void:
+	pass # Replace with function body.

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dumvwi74se3yj" path="res://scripts/scripts_test/Scene_Principal.gd" id="1_racit"]
 [ext_resource type="PackedScene" uid="uid://yxnxe0jib0vn" path="res://scene/test_map/test_map.tscn" id="2_fpj1o"]
-[ext_resource type="PackedScene" uid="uid://sw2ms1tl7k0f" path="res://scene/turret_scene/test_turret2.tscn" id="4_t0rts"]
+[ext_resource type="PackedScene" uid="uid://by6c3btxqtlc1" path="res://scene/turret_scene/turret.tscn" id="2_uefgs"]
 [ext_resource type="PackedScene" uid="uid://brcint81168kc" path="res://scene/control/pause.tscn" id="5_g32rf"]
 [ext_resource type="PackedScene" uid="uid://cvwvu8or8bj31" path="res://scene/HUD/point_de_vie.tscn" id="6_racit"]
 [ext_resource type="PackedScene" uid="uid://cxjw735l6bvop" path="res://scene/control/death_menu.tscn" id="7_v710u"]
@@ -39,8 +39,8 @@ script = ExtResource("1_racit")
 
 [node name="turret" type="Node3D" parent="node_joueur"]
 
-[node name="test_turret" parent="node_joueur/turret" instance=ExtResource("4_t0rts")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38098, 0, 7.57495)
+[node name="Node3D" parent="node_joueur/turret" instance=ExtResource("2_uefgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
 
 [node name="Projectiles" type="Node3D" parent="node_joueur"]
 
