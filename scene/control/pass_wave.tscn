@@ -392,7 +392,6 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 247.5
 offset_bottom = 315.0
-text = "bloup"
 icon = ExtResource("1_36qp3")
 flat = true
 icon_alignment = 1
@@ -446,6 +445,13 @@ theme_override_styles/hover = ExtResource("2_se3di")
 theme_override_styles/normal = ExtResource("3_3oseq")
 text = "NEXT WAVE
 "
+
+[node name="tot_price" type="Label" parent="Shop"]
+layout_mode = 0
+offset_left = 1580.0
+offset_top = 320.0
+offset_right = 1749.0
+offset_bottom = 388.0
 
 [node name="animationWave" type="AnimationPlayer" parent="."]
 libraries = {

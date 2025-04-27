@@ -11,9 +11,9 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_start_pressed() -> void:
+func _on_start_pressed() -> void:						# à modifier : fonction pour lancer la scene principal donc le jeu
 	get_tree().change_scene_to_packed(level_test)
 
 
-func _on_quit_pressed() -> void:
+func _on_quit_pressed() -> void:						# quitte le jeu
 	get_tree().quit()

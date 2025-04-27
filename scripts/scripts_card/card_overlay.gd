@@ -18,3 +18,5 @@ func _mouse_exit() -> void:
 	$hitbox.shape.size.x = 1.32
 	$hitbox.position.z -=0.03
 	$card.render_priority -= 5
+
+

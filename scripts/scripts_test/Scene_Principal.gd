@@ -14,20 +14,20 @@ var array_card = []
 @export var piece = 50
 
 func _ready() -> void:
-	count_enemy()
-	$HUD/Pass_wave.inter_wave(number_wave)
+	count_enemy()					# permet d'avoir le nombre d'enemy afin de vérifier si il en reste sur le terrain ou non, si non alors déclencher le pass wave pour passer à la vagues suivante automatiquement, il faut faire le count enemy avant de déclencher interwave
+	$HUD/Pass_wave.inter_wave(number_wave)			# fonction interwave dans le HUD/Pass_wave
 
 func _process(delta):
-	if number_enemy == 0:
+	if number_enemy == 0:					# vérifie si il n'y a plus d'enemy sur la map, auquel cas il recompte le nombre d'enemy de la vague suivante et déclenche la fonction interwave
 		piece += number_wave*10
 		count_enemy()
 		$HUD/Pass_wave.inter_wave(number_wave)
-	if Input.is_action_just_pressed("start"):
+	
+	if Input.is_action_just_pressed("start"):				# fonction débug pour spawn une vague d'enemy
 		spawn_enemy()
-	if Input.is_action_just_pressed("spawn_card_temp"):
+	
+	if Input.is_action_just_pressed("spawn_card_temp"):				# fonction début pour spawn un card dans le deck (carte archer)
 		spawn_card("archer_card")
-	if life <= 0:
-		print("dead!")
 
 func spawn_enemy():
 	for i in wave_data[number_wave%len(wave_data)]:
