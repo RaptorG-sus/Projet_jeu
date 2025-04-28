@@ -7,6 +7,7 @@ var turret_data = GameData.turret_data
 var liste_enemy = []
 
 func _ready() -> void:
+	$".".input_ray_pickable = false
 	$Timer.set_wait_time(turret_data["turret_test"]["base"]["attack_speed"])
 	$CollisionShape3D.shape.set_radius(turret_data["turret_test"]["base"]["range"])
 	
@@ -50,8 +51,5 @@ func _on_area_exited(area: Area3D) -> void:
 		$Timer.stop()
 
 func _on_hit_box_joueur_input_event(camera:Node, event:InputEvent, event_position:Vector3, normal:Vector3, shape_idx:int) -> void:
-	print("test")
-
-
-func _on_hit_box_joueur_mouse_entered() -> void:
-	pass # Replace with function body.
+	if event is InputEventMouseButton and event.pressed:
+		print("C BON") 
