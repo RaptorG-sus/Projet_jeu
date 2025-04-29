@@ -2,6 +2,7 @@ extends Area3D
 
 var projectile :PackedScene = preload("res://scene/props/projectile.tscn")
 var turret_data = GameData.turret_data
+var flag_menu_upgrade = false
 
 @onready var current_enemy = null
 var liste_enemy = []
@@ -50,6 +51,14 @@ func _on_area_exited(area: Area3D) -> void:
 	if len(liste_enemy) == 0:
 		$Timer.stop()
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed and flag_menu_upgrade and get_viewport().get_mouse_position().x > $"../upgradePannel"/panel_upgrade.size.x:
+		print(get_viewport().get_mouse_position().y)
+		flag_menu_upgrade = false
+		$".."/upgradePannel.close_menu()
+
+
 func _on_hit_box_joueur_input_event(camera:Node, event:InputEvent, event_position:Vector3, normal:Vector3, shape_idx:int) -> void:
-	if event is InputEventMouseButton and event.pressed:
-		print("C BON") 
+	if event is InputEventMouseButton and event.pressed and flag_menu_upgrade == false:
+		flag_menu_upgrade = true
+		$".."/upgradePannel.show_menu()

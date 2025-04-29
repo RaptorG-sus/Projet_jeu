@@ -1,7 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://yxnxe0jib0vn"]
+[gd_scene load_steps=13 format=3 uid="uid://yxnxe0jib0vn"]
 
 [ext_resource type="PackedScene" uid="uid://4fsvivaac1s1" path="res://scene/props/camera.tscn" id="1_paxdi"]
 [ext_resource type="PackedScene" uid="uid://diw50aj4c668" path="res://3d_models/map_3.tscn" id="2_g8ioe"]
+[ext_resource type="PackedScene" uid="uid://cnx4gtsk2got5" path="res://3d_models/textures/Decor/arbre/arbre.glb" id="3_b10ks"]
+[ext_resource type="PackedScene" uid="uid://cg2sbir4klx4f" path="res://3d_models/textures/Decor/rocher/amasRoc.glb" id="4_j1v7c"]
+[ext_resource type="PackedScene" uid="uid://ctt1otxaa1u2l" path="res://3d_models/textures/Decor/rocher/roc2.glb" id="5_1lwdo"]
+[ext_resource type="PackedScene" uid="uid://q780gu30rdwo" path="res://3d_models/textures/Decor/rocher/roc3.glb" id="6_4i0yj"]
+[ext_resource type="PackedScene" uid="uid://bmcf62un3jggv" path="res://3d_models/textures/Decor/rocher/roc1(moche).glb" id="7_j1v7c"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8nhd1"]
 
@@ -81,3 +86,39 @@ transform = Transform3D(0.675267, 0, 0.736655, 0, 0.999322, 0, -0.736655, 0, 0.6
 
 [node name="map_3" parent="." instance=ExtResource("2_g8ioe")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="props" type="Node" parent="."]
+
+[node name="tree" type="Node" parent="props"]
+
+[node name="arbre" parent="props/tree" instance=ExtResource("3_b10ks")]
+transform = Transform3D(0.348385, -0.0335886, 0, 0.0335886, 0.348385, 0, 0, 0, 0.35, 9.3765, 3.15882, 5.94333)
+
+[node name="arbre2" parent="props/tree" instance=ExtResource("3_b10ks")]
+transform = Transform3D(0.34942, 0.0201352, 0, -0.0201294, 0.34932, 0.00837417, 0.000481758, -0.00836029, 0.3499, -9.67958, 2.0299, 7.29216)
+
+[node name="arbre3" parent="props/tree" instance=ExtResource("3_b10ks")]
+transform = Transform3D(0.0930794, 0, -0.38902, 0, 0.4, 0, 0.38902, 0, 0.0930794, 3.37631, -0.627128, -6.0453)
+
+[node name="rocks" type="Node" parent="props"]
+
+[node name="amasRoc2" parent="props/rocks" instance=ExtResource("4_j1v7c")]
+transform = Transform3D(1, 0, 0, 0, 0.819612, -0.572919, 0, 0.572919, 0.819612, -11.1568, 0.830417, -3.24611)
+
+[node name="roc33" parent="props/rocks" instance=ExtResource("6_4i0yj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.61913, 0.301345, 3.06049)
+
+[node name="roc32" parent="props/rocks" instance=ExtResource("6_4i0yj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.999009, 0, 9.51016)
+
+[node name="roc22" parent="props/rocks" instance=ExtResource("5_1lwdo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83547, -0.459633, 8.44341)
+
+[node name="amasRoc" parent="props/rocks" instance=ExtResource("4_j1v7c")]
+transform = Transform3D(0.614754, -0.415302, -0.110007, 0.429625, 0.59426, 0.15741, 0, -0.19204, 0.724997, 8.26823, 0.144444, 3.63792)
+
+[node name="roc23" parent="props/rocks" instance=ExtResource("5_1lwdo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.17, 0, 1.97598)
+
+[node name="roc1(moche)" parent="props/rocks" instance=ExtResource("7_j1v7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.95406, -0.28809, 1.33384)
