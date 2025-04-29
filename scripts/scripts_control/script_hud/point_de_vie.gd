@@ -1,4 +1,4 @@
-extends Control
+extends Panel
 
 func _process(delta: float) -> void:
-	$TextEdit.text = str(get_parent().get_parent().life)
+	$TextEdit.text = str(get_parent().get_parent().get_parent().life)

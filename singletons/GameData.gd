@@ -34,7 +34,7 @@ var enemy_data = {
 
 
 var camera_data = {
-	"map_test" : [0, 0.25, 0.5, 0.75]
+	"map_test" : [0, 0.25, 0.5, 0.75, 1]
 }
 
 var turret_data = {
@@ -57,10 +57,20 @@ var turret_data = {
 				"cost" = 200,
 				#stat rajouté à l'état initial
 				"range" = 2,
-				"damage" = 5,
+				"damage" = 5
 			}
 		}
 	}
 }
 
-var card_data = [["archer_card","carte d'archer"],["test_card","carte test"]]
+var card_data = {
+	"archer_card" = {
+		"texture" : "res://image/archer_card.png",
+		"text" : "carte archer"
+		},
+	
+	"test_card" = {
+		"texture" : "res://image/test_card.png",
+		"text" : "carte test"
+		}
+}

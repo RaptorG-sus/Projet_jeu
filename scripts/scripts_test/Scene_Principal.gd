@@ -47,18 +47,24 @@ func count_enemy():
 
 
 func spawn_card(name_card):
-	name_card = "res://scene/card_scene/" + name_card + ".tscn"			# prend la scene de la carte sélectionné avec name_card
-	var new_card = load(name_card).instantiate()						# instantie la carte
-	$node_environnement/map_test/movement_camera/camera/Camera3D.add_child(new_card, true)			# créer la carte dans le deck
+# recupere et instantie la scene generale des card
+	var new_card = load("res://scene/card_scene/base_card.tscn").instantiate()
+	new_card.card_name = name_card
+	var container = $HUD/deck/HBoxContainer
+	container.add_child(new_card, true)			# créer la carte dans le deck
+	
+		
 	array_card.append(new_card)							# met la carte dans une liste
-	new_card.scale = Vector3(0.5,0.5,0.5)				# change les mesure des cartes
-	new_card.position = Vector3(0, -0.7, -0.9)
+
+	"""new_card.scale = Vector3(0.5,0.5,0.5)				# change les mesure des cartes
+	#new_card.position = Vector3(0, -0.7, -0.9)
 	decal_card()
 	for i in range(len(array_card)):
-		array_card[i].get_node("card").render_priority = len(array_card) - i		
+		array_card[i].get_node("card").render_priority = len(array_card) - i		"""
 		
 
 func decal_card():
+	"""
 	if len(array_card) < 5:					# vérification si inférieur à 5
 		var compt = len(array_card) / 2			# divise par deux la longueur de la liste carte
 		if len(array_card)%2 == 0:					# vérifie si c'est le nombre de carte est pari ou impair
@@ -76,7 +82,8 @@ func decal_card():
 			print(i)
 			array_card[i].position = Vector3(-(0.93 - ((i*lenght_deck)/(len(array_card)-1))),-0.7,-0.9)
 			array_card[i].get_node("hitbox").position = Vector3(0,-0.44,-(len(array_card)-i)*0.01)
-			print(array_card[i].position)
+			print(array_card[i].position)"""
+	
 
 
 func _on_enemy_died() -> void:
