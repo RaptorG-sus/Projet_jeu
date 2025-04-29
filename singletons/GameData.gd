@@ -50,9 +50,11 @@ var turret_data = {
 			"pierce" = 1
 		},
 		#type d'amélioration
-		"amelioration_magique" : {
+		"magique" : {
 			#tier de l'amélioration (1 - 5)
 			"tier 1":{
+				#coût de l'amélioration
+				"cost" = 200,
 				#stat rajouté à l'état initial
 				"range" = 2,
 				"damage" = 5,

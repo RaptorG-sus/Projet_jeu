@@ -92,7 +92,7 @@ linear_accel_max = 2.08
 radius = 0.01
 height = 0.5
 
-[node name="Node3D" type="Node3D"]
+[node name="name_turret" type="Node3D"]
 
 [node name="Area3D" type="Area3D" parent="."]
 script = ExtResource("1_hxqei")
@@ -114,11 +114,12 @@ shape = SubResource("CapsuleShape3D_hxqei")
 
 [node name="upgradePannel" parent="." instance=ExtResource("3_kcgi6")]
 
-[node name="particules" type="Node" parent="."]
+[node name="particules" type="Node3D" parent="."]
 
 [node name="depose_it" type="GPUParticles3D" parent="particules"]
 emitting = false
 amount = 15
+one_shot = true
 speed_scale = 1.49
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_5w4e1")
@@ -127,8 +128,10 @@ draw_skin = SubResource("Skin_sogfa")
 
 [node name="upgrade" type="GPUParticles3D" parent="particules"]
 material_override = SubResource("StandardMaterial3D_5w4e1")
+emitting = false
 amount = 20
 lifetime = 0.6
+one_shot = true
 explosiveness = 1.0
 collision_base_size = 128.0
 process_material = SubResource("ParticleProcessMaterial_85ivu")

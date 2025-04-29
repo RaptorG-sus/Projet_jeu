@@ -167,3 +167,5 @@ texture_normal = ExtResource("2_lym7e")
 libraries = {
 &"": SubResource("AnimationLibrary_tbf01")
 }
+
+[connection signal="pressed" from="panel_upgrade/VBoxContainer/magique" to="." method="_on_magique_pressed"]
