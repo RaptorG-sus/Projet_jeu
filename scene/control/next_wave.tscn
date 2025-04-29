@@ -13,7 +13,7 @@ script = ExtResource("1_nr5sm")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 353.0
+offset_left = -353.0
 offset_bottom = 121.0
 text = "Next wave"
 

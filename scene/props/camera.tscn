@@ -10,7 +10,3 @@ script = ExtResource("1_x7ak6")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1.00081, 0, 0, 0, 1.00081, 0, 0, 0, 1.00081, 0, 0, 0)
 script = ExtResource("1_k0lk5")
-
-[node name="deck" type="Node3D" parent="."]
-
-[connection signal="position_cam" from="." to="." method="_on_position_cam"]

@@ -43,7 +43,7 @@ func _on_pass_wave_pressed() -> void:
 		print(liste_generer)
 		for i in range(len(liste_buyed)):		# boucle pour générer les cartes dans le deck
 			if liste_buyed[i]:						# vérifie si la carte est acheté, si oui génére la carte dans le deck
-				get_parent().get_parent().spawn_card(liste_generer[i][0])				# appel de la fonction pour générer la carte avec la carte voulue 
+				get_parent().get_parent().spawn_card(liste_generer[i])				# appel de la fonction pour générer la carte avec la carte voulue 
 		get_parent().get_parent().piece -= sum_price						# retire le prix total des cartes des pièces
 		liste_buyed = [0,0,0,0,0,0]								# remet à 0 les vérifications 
 		await (get_tree().create_timer(3, false)).timeout		# lance un timer pour attendre 3 seconde

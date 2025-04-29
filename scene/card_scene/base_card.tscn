@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://1bsb54j21b0n"]
+
+[ext_resource type="Script" uid="uid://dc88wu60u30e7" path="res://scripts/scripts_card/card_overlay.gd" id="2_md5nq"]
+
+[sub_resource type="Animation" id="Animation_21sgu"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_7x1au"]
+resource_name = "card_go_down"
+
+[sub_resource type="Animation" id="Animation_ur7lj"]
+resource_name = "test"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dsam4"]
+_data = {
+&"RESET": SubResource("Animation_21sgu"),
+&"card_go_down": SubResource("Animation_7x1au"),
+&"test": SubResource("Animation_ur7lj")
+}
+
+[node name="base_card" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(132, 336)
+offset_left = -528.0
+offset_top = -1344.0
+offset_right = -396.0
+offset_bottom = -1008.0
+scale = Vector2(8, 8)
+script = ExtResource("2_md5nq")
+
+[node name="card" type="Sprite2D" parent="."]
+position = Vector2(132, 168)
+scale = Vector2(8, 8)
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dsam4")
+}
+
+[connection signal="mouse_entered" from="." to="." method="_mouse_enter"]
+[connection signal="mouse_exited" from="." to="." method="_mouse_exit"]

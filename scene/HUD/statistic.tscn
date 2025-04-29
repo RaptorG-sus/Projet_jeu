@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://crrxk7axvdk4x"]
+
+[ext_resource type="Script" uid="uid://dgpxaf8wap17v" path="res://scripts/scripts_control/script_statistic.gd" id="1_g4kdb"]
+[ext_resource type="Texture2D" uid="uid://cq1p77i6frqep" path="res://image/koeur.png" id="2_g4kdb"]
+[ext_resource type="Texture2D" uid="uid://slunbkwx6cvp" path="res://image/mana_bubble.png" id="3_4ohb0"]
+[ext_resource type="Texture2D" uid="uid://xl5juwm3ssv8" path="res://image/pièce.png" id="4_e5af2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4kdb"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[node name="Statistic" type="VBoxContainer"]
+custom_minimum_size = Vector2(256, 256)
+offset_right = 8.0
+offset_bottom = 8.0
+alignment = 1
+script = ExtResource("1_g4kdb")
+
+[node name="PointDeVie" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(128, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="PointDeVie"]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 75.0
+label_settings = SubResource("LabelSettings_g4kdb")
+
+[node name="Sprite2D" type="Sprite2D" parent="PointDeVie"]
+position = Vector2(120, 40)
+texture = ExtResource("2_g4kdb")
+
+[node name="PointDeMana" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(128, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="PointDeMana"]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 75.0
+label_settings = SubResource("LabelSettings_g4kdb")
+
+[node name="Sprite2D" type="Sprite2D" parent="PointDeMana"]
+position = Vector2(120, 40)
+texture = ExtResource("3_4ohb0")
+
+[node name="Piece" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(128, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="Piece"]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 75.0
+label_settings = SubResource("LabelSettings_g4kdb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Piece"]
+position = Vector2(120, 40)
+texture = ExtResource("4_e5af2")
