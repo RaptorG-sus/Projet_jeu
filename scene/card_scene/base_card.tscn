@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://1bsb54j21b0n"]
 
-[ext_resource type="Script" uid="uid://dc88wu60u30e7" path="res://scripts/scripts_card/card_overlay.gd" id="2_md5nq"]
+[ext_resource type="Script" uid="uid://bhgondenxbklh" path="res://scripts/scripts_card/card_overlay.gd" id="2_md5nq"]
 
 [sub_resource type="Animation" id="Animation_21sgu"]
 length = 0.001
