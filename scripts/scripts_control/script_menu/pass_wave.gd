@@ -39,13 +39,14 @@ func _on_pass_wave_pressed() -> void:
 	if sum_price > $"../..".piece:		# vérifie si le total est supérieur au nombre de pièce dans l'inventaire
 		print("trop cher")				# à modifier : il faudrait rajouter un effet d'écran / bruitages
 	else:
-		shop_down()						# lance l'animation pour réduire le shop	
 		print(liste_generer)
 		for i in range(len(liste_buyed)):		# boucle pour générer les cartes dans le deck
 			if liste_buyed[i]:						# vérifie si la carte est acheté, si oui génére la carte dans le deck
 				get_parent().get_parent().spawn_card(liste_generer[i])				# appel de la fonction pour générer la carte avec la carte voulue 
+				$Shop/GridContainer.get_node("Card"+str(i+1)).get_node("AnimationSelect").play("card_unselect")
+				$Shop/GridContainer.get_node("Card"+str(i+1)).get_node("AnimationShake").stop()
+		shop_down()						# lance l'animation pour réduire le shop	
 		get_parent().get_parent().piece -= sum_price						# retire le prix total des cartes des pièces
 		liste_buyed = [0,0,0,0,0,0]								# remet à 0 les vérifications 
 		await (get_tree().create_timer(3, false)).timeout		# lance un timer pour attendre 3 seconde
 		$"../..".spawn_enemy()				# lance la prochaine vague
-				
