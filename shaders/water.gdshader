@@ -2,10 +2,10 @@ shader_type spatial;
 uniform sampler2D noise;
 
 void vertex() {
-	
-	
+
+
 	float height = texture(noise, (VERTEX.xz / 10.0) - (0.01 * cos(VERTEX.xz + TIME*0.2))).x;
-	
+
 	VERTEX.y += height;
 	// Called for every vertex the material is visible on.
 }

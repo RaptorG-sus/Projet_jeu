@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://by6c3btxqtlc1"]
 
 [ext_resource type="Script" uid="uid://bhtjyq8y3y8at" path="res://scripts/scripts_turret/turret_gen.gd" id="1_hxqei"]
-[ext_resource type="PackedScene" uid="uid://ct2n1d6tilckj" path="res://3d_models/bonhomme_en_mousse.tscn" id="2_kcgi6"]
+[ext_resource type="PackedScene" uid="uid://by28bkvf8cabk" path="res://3d_models/character/mannequin_animation.tscn" id="2_kcgi6"]
 [ext_resource type="PackedScene" uid="uid://c1gfohr2unebw" path="res://scene/HUD/upgrade_pannel.tscn" id="3_kcgi6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mid5j"]
@@ -97,10 +97,10 @@ height = 0.5
 [node name="Area3D" type="Area3D" parent="."]
 script = ExtResource("1_hxqei")
 
+[node name="mannequin_animation" parent="Area3D" instance=ExtResource("2_kcgi6")]
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_mid5j")
-
-[node name="BonhommeEnMousse" parent="Area3D" instance=ExtResource("2_kcgi6")]
 
 [node name="Timer" type="Timer" parent="Area3D"]
 wait_time = 0.001

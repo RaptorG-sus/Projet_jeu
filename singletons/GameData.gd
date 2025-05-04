@@ -45,7 +45,7 @@ var turret_data = {
 			#toute ces stats initial
 			"range" = 5,
 			"damage" = 1000,
-			"attack_speed" = 0.5,
+			"attack_speed" =1.25,
 			"bullet_speed" = 30,
 			"pierce" = 1
 		},

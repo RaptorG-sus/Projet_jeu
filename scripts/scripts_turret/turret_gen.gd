@@ -2,7 +2,9 @@ extends Area3D
 
 var projectile :PackedScene = preload("res://scene/props/projectile.tscn")
 var turret_data = GameData.turret_data
+
 var flag_menu_upgrade = false
+var flag_current_animation = true
 
 var attack_speed = turret_data["turret_test"]["base"]["attack_speed"]
 var range_turret = turret_data["turret_test"]["base"]["range"]
@@ -14,6 +16,7 @@ var bullet_speed = turret_data["turret_test"]["base"]["bullet_speed"]
 var liste_enemy = []
 
 func _ready() -> void:
+	rotate_y(180)
 	$".".input_ray_pickable = false
 	$Timer.set_wait_time(attack_speed)
 	$CollisionShape3D.shape.set_radius(range_turret)
@@ -21,6 +24,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if len(liste_enemy) != 0:
 		look_at(liste_enemy[0].global_position)
+		rotation.x = 0
+		rotation.z = 0
 	else:
 		smooth_rotation()
 	
@@ -29,7 +34,14 @@ func _process(delta: float) -> void:
 	
 	if $CollisionShape3D.shape.get_radius() != range_turret:
 		$CollisionShape3D.shape.set_radius(range_turret)
-		
+	
+	if(round_to_dec($mannequin_animation/AnimationPlayer.get_current_animation_position(),2)>= 2.47 and flag_current_animation):
+		throw_projectile()
+		flag_current_animation = false
+
+	if($mannequin_animation/AnimationPlayer.get_current_animation_position()>= 4.9):
+		$mannequin_animation/AnimationPlayer.play("Armature|mixamo_com|Layer0")
+		flag_current_animation = true
 		
 func smooth_rotation() -> void:
 	var r = Vector3.ZERO
@@ -44,25 +56,38 @@ func smooth_rotation() -> void:
 func _on_timer_timeout() -> void:
 	var p = projectile.instantiate()
 
+	$mannequin_animation/AnimationPlayer.play("Armature|mixamo_com|Layer0")
 	$"../../.."/Projectiles.add_child(p)
-	p.global_position = global_position
+	p.global_position = $mannequin_animation/Marker3D.global_position
 	p.enemy_pos = liste_enemy[0].global_position
-	p.parent_pos = global_position
+	p.parent_pos = $mannequin_animation/Marker3D.global_position
 	p.damage = damage
 	p.pierce = pierce
 	p.speed = bullet_speed
 
+
+func throw_projectile():
+	var p = projectile.instantiate()
+
+	$"../../.."/Projectiles.add_child(p)
+	p.global_position = $mannequin_animation/Marker3D.global_position
+	p.enemy_pos = liste_enemy[0].global_position
+	p.parent_pos = $mannequin_animation/Marker3D.global_position
+	p.damage = damage
+	p.pierce = pierce
+	p.speed = bullet_speed
 #gestion détection enemies
 #_______________________________________________________________________________________________________________________________
 func _on_area_entered(area: Area3D) -> void:
 	liste_enemy.append(area)
 	if len(liste_enemy) == 1:
-		$Timer.start()
+		$mannequin_animation/AnimationPlayer.play("Armature|mixamo_com|Layer0")
 
 func _on_area_exited(area: Area3D) -> void:
 	liste_enemy.erase(area)
 	if len(liste_enemy) == 0:
-		$Timer.stop()
+		$mannequin_animation/AnimationPlayer.stop()
+		flag_current_animation = true
 
 
 # gestion souris pour amélioration
@@ -78,3 +103,6 @@ func _on_hit_box_joueur_input_event(camera:Node, event:InputEvent, event_positio
 	if event is InputEventMouseButton and event.pressed and flag_menu_upgrade == false:
 		flag_menu_upgrade = true
 		$".."/upgradePannel.show_menu()
+
+func round_to_dec(num, digit):
+	return round(num * pow(10.0, digit)) / pow(10.0, digit)
