@@ -5,12 +5,14 @@ var turret_data = GameData.turret_data
 
 var flag_menu_upgrade = false
 var flag_current_animation = true
+var flag_animation_playing = false
+#var turret_name = str(get_parent().name)
 
-var attack_speed = turret_data["turret_test"]["base"]["attack_speed"]
-var range_turret = turret_data["turret_test"]["base"]["range"]
-var damage = turret_data["turret_test"]["base"]["damage"]
-var pierce = turret_data["turret_test"]["base"]["pierce"]
-var bullet_speed = turret_data["turret_test"]["base"]["bullet_speed"]
+var attack_speed = turret_data["villager"]["base"]["attack_speed"]
+var range_turret = turret_data["villager"]["base"]["range"]
+var damage = turret_data["villager"]["base"]["damage"]
+var pierce = turret_data["villager"]["base"]["pierce"]
+var bullet_speed = turret_data["villager"]["base"]["bullet_speed"]
 
 @onready var current_enemy = null
 var liste_enemy = []
@@ -35,11 +37,13 @@ func _process(delta: float) -> void:
 	if $CollisionShape3D.shape.get_radius() != range_turret:
 		$CollisionShape3D.shape.set_radius(range_turret)
 	
-	if(round_to_dec($mannequin_animation/AnimationPlayer.get_current_animation_position(),2)>= 2.47 and flag_current_animation):
-		throw_projectile()
-		flag_current_animation = false
+	if($mannequin_animation/AnimationPlayer.is_playing()):
+		if(round_to_dec($mannequin_animation/AnimationPlayer.get_current_animation_position(),2)>= 2.47 and flag_current_animation):
+			throw_projectile()
+			flag_current_animation = false
 
-	if($mannequin_animation/AnimationPlayer.get_current_animation_position()>= 4.9):
+	if(!$mannequin_animation/AnimationPlayer.is_playing() and flag_animation_playing):
+		print(get_parent().turret_name)
 		$mannequin_animation/AnimationPlayer.play("Armature|mixamo_com|Layer0")
 		flag_current_animation = true
 		
@@ -81,12 +85,15 @@ func throw_projectile():
 func _on_area_entered(area: Area3D) -> void:
 	liste_enemy.append(area)
 	if len(liste_enemy) == 1:
+		flag_animation_playing = true
 		$mannequin_animation/AnimationPlayer.play("Armature|mixamo_com|Layer0")
 
 func _on_area_exited(area: Area3D) -> void:
 	liste_enemy.erase(area)
 	if len(liste_enemy) == 0:
-		$mannequin_animation/AnimationPlayer.stop()
+		if$mannequin_animation/AnimationPlayer.is_playing():
+			$mannequin_animation/AnimationPlayer.stop()
+			flag_animation_playing = false
 		flag_current_animation = true
 
 

@@ -39,7 +39,7 @@ var camera_data = {
 
 var turret_data = {
 	#nom de la tours
-	"turret_test" : {
+	"villager" : {
 		# état initial dès qu'on la pose
 		"base" : {
 			#toute ces stats initial
