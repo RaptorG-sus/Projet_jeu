@@ -169,3 +169,4 @@ libraries = {
 }
 
 [connection signal="pressed" from="panel_upgrade/VBoxContainer/magique" to="." method="_on_magique_pressed"]
+[connection signal="pressed" from="panel_upgrade/VBoxContainer/nature" to="." method="_on_nature_pressed"]

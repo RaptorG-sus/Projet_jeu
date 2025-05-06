@@ -59,6 +59,13 @@ var turret_data = {
 				"range" = 2,
 				"damage" = 5
 			}
+		},
+
+		"nature" : {
+			"tier 1":{
+				"cost" = 100,
+				"pierce" = 1
+			}
 		}
 	}
 }
