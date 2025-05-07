@@ -2,11 +2,13 @@ extends Node3D
 
 var turret_name = "villager"
 var villager_data = GameData.turret_data["villager"]
+var flag_nature_tier3 = false
 
 func upgrade_gen(data):
 	print(name)
 	for deep_data in data:
-		match data:
+		print(deep_data)
+		match deep_data:
 			"damage":
 				$Area3D.damage += data["damage"]
 			"range":
@@ -20,6 +22,26 @@ func upgrade_gen(data):
 
 func upgrade_magique_tier1():
 	upgrade_gen(villager_data["magique"]["tier 1"])
+	$particules/upgrade.emitting = true
+
+
+
+
+
 
 func upgrade_nature_tier1():
 	upgrade_gen(villager_data["nature"]["tier 1"])
+	$particules/upgrade.emitting = true
+
+func upgrade_nature_tier2():
+	upgrade_gen(villager_data["nature"]["tier 2"])
+	$particules/upgrade.emitting = true
+
+func upgrade_nature_tier3():
+	flag_nature_tier3 = true
+	$particules/upgrade.emitting = true
+
+func _on_area_3d_throw() -> void:
+	if flag_nature_tier3:
+		$Area3D.throw_projectile(15)
+		$Area3D.throw_projectile(-15)

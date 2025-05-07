@@ -14,6 +14,8 @@ var damage = turret_data["villager"]["base"]["damage"]
 var pierce = turret_data["villager"]["base"]["pierce"]
 var bullet_speed = turret_data["villager"]["base"]["bullet_speed"]
 
+signal throw
+
 @onready var current_enemy = null
 var liste_enemy = []
 
@@ -40,6 +42,7 @@ func _process(delta: float) -> void:
 	if($mannequin_animation/AnimationPlayer.is_playing()):
 		if(round_to_dec($mannequin_animation/AnimationPlayer.get_current_animation_position(),2)>= 2.47 and flag_current_animation):
 			throw_projectile()
+			throw.emit()
 			flag_current_animation = false
 
 	if(!$mannequin_animation/AnimationPlayer.is_playing() and flag_animation_playing):
@@ -70,12 +73,13 @@ func _on_timer_timeout() -> void:
 	p.speed = bullet_speed
 
 
-func throw_projectile():
+func throw_projectile(angle = 0):
 	var p = projectile.instantiate()
 
 	$"../../.."/Projectiles.add_child(p)
-	p.global_position = $mannequin_animation/Marker3D.global_position
+	p.global_position = $mannequin_animation/Marker3D.global_position                
 	p.enemy_pos = liste_enemy[0].global_position
+	p.angle = angle
 	p.parent_pos = $mannequin_animation/Marker3D.global_position
 	p.damage = damage
 	p.pierce = pierce

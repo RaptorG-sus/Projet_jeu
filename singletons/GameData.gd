@@ -65,6 +65,13 @@ var turret_data = {
 			"tier 1":{
 				"cost" = 100,
 				"pierce" = 1
+			},
+			"tier 2":{
+				"cost" = 400,
+				"pierce" = 1
+			},
+			"tier 3":{
+				"cost" = 0
 			}
 		}
 	}

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dmyjiy15ry37t"]
 
-[ext_resource type="Script" uid="uid://dmjeaysomw6kg" path="res://scripts/scripts_turret/turret_test.gd" id="1_yijkj"]
+[ext_resource type="Script" path="res://scripts/scripts_turret/turret_test.gd" id="1_yijkj"]
 [ext_resource type="PackedScene" uid="uid://ct2n1d6tilckj" path="res://3d_models/bonhomme_en_mousse.tscn" id="2_ggje5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cpowv"]

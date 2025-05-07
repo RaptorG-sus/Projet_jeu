@@ -6,6 +6,7 @@ extends Area3D
 @onready var damage
 @onready var pierce
 @onready var speed
+@onready var angle
 
 
 func _process(delta: float) -> void:
@@ -21,6 +22,12 @@ func vecteur_directeur(p: Vector3, e: Vector3) -> Vector3:
 	vecteur_directeur.x = (e.x - p.x) / somme
 	vecteur_directeur.y = (e.y - p.y) / somme
 	vecteur_directeur.z = (e.z - p.z) / somme
+
+	if(angle != 0.0):
+		var angle_rad = deg_to_rad(15)
+		var y_rotation = Basis(Vector3.UP, angle_rad)
+		vecteur_directeur = y_rotation * vecteur_directeur
+		vecteur_directeur = vecteur_directeur.normalized()
 
 	return vecteur_directeur
 

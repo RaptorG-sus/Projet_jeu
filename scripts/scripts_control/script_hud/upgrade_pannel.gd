@@ -40,13 +40,13 @@ func _on_nature_pressed() -> void:
 		match tier_nature:
 			1:
 				$"..".upgrade_nature_tier1()
-#			2:
-#				$"..".upgrade_nature_tier2()
-#			3:
-#				$"..".upgrade_nature_tier3()
+			2:
+				$"..".upgrade_nature_tier2()
+			3:
+				$"..".upgrade_nature_tier3()
 #			4:
 #				$"..".upgrade_nature_tier4()
 #			5:
 #				$"..".upgrade_nature_tier5()
-#		tier_magique+=1
+		tier_nature+=1
 	$".."/Area3D/mannequin_animation/Armature/Skeleton3D/natural_tier1.show()
