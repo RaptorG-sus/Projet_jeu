@@ -23,15 +23,20 @@ func upgrade_gen(data):
 func upgrade_magique_tier1():
 	upgrade_gen(villager_data["magique"]["tier 1"])
 	$particules/upgrade.emitting = true
+	$Area3D/mannequin_animation/Armature/Skeleton3D/magique_tier1.show()
 
-
-
+func upgrade_magique_tier2():
+	upgrade_gen(villager_data["magique"]["tier 2"])
+	$particules/upgrade.emitting = true
+	$Area3D/mannequin_animation/Armature/Skeleton3D/magique_tier1.hide()
+	$Area3D/mannequin_animation/Armature/Skeleton3D/magique_tier2.show()
 
 
 
 func upgrade_nature_tier1():
 	upgrade_gen(villager_data["nature"]["tier 1"])
 	$particules/upgrade.emitting = true
+	$Area3D/mannequin_animation/Armature/Skeleton3D/natural_tier1.show()
 
 func upgrade_nature_tier2():
 	upgrade_gen(villager_data["nature"]["tier 2"])
@@ -40,6 +45,8 @@ func upgrade_nature_tier2():
 func upgrade_nature_tier3():
 	flag_nature_tier3 = true
 	$particules/upgrade.emitting = true
+	$Area3D/mannequin_animation/Armature/Skeleton3D/natural_tier3.show()
+	$Area3D/mannequin_animation/Armature/Skeleton3D/Cube_002.hide()
 
 func _on_area_3d_throw() -> void:
 	if flag_nature_tier3:
