@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://rexk52fuv4rl"]
+[gd_scene load_steps=9 format=3 uid="uid://rexk52fuv4rl"]
 
 [ext_resource type="PackedScene" uid="uid://djvt33buqnmn" path="res://3d_models/character/props_character/villager/magique/magique_cheapeau_tier2.glb" id="1_8d4dp"]
 
@@ -10,11 +10,6 @@ roughness = 0.0
 emission_enabled = true
 emission = Color(1, 1, 0, 1)
 emission_energy_multiplier = 9.13
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jwil"]
-albedo_color = Color(0.996706, 0.787652, 0.179646, 1)
-metallic = 1.0
-roughness = 0.38
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7bwhc"]
 frequency = 0.0032
@@ -46,9 +41,6 @@ normal_scale = 16.0
 
 [node name="etoile" parent="." index="0"]
 material_override = SubResource("StandardMaterial3D_8d4dp")
-
-[node name="Cube_001" parent="." index="1"]
-material_override = SubResource("StandardMaterial3D_8jwil")
 
 [node name="chapeau_magique_villager_tier2" parent="." index="2"]
 material_override = SubResource("StandardMaterial3D_jotpc")
