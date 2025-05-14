@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://cs2oamsgeblek"]
+
+[ext_resource type="PackedScene" uid="uid://by6c3btxqtlc1" path="res://scene/turret_scene/villager.tscn" id="1_l2i1a"]
+[ext_resource type="Script" uid="uid://brb2hdwrhu2wj" path="res://scripts/script debug/scene_debug_tire.gd" id="1_rtomu"]
+[ext_resource type="PackedScene" uid="uid://4fsvivaac1s1" path="res://scene/props/camera.tscn" id="2_rtomu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lw03p"]
+sky_top_color = Color(0.682353, 0.431373, 0.298039, 1)
+sky_horizon_color = Color(0, 0.710246, 0.967064, 1)
+sky_curve = 0.310579
+
+[sub_resource type="Sky" id="Sky_3hnpm"]
+sky_material = SubResource("ProceduralSkyMaterial_lw03p")
+process_mode = 3
+
+[sub_resource type="Environment" id="Environment_mp3qn"]
+background_mode = 2
+sky = SubResource("Sky_3hnpm")
+ambient_light_source = 2
+ambient_light_color = Color(0.783523, 0.783523, 0.783523, 1)
+ssao_power = 0.549032
+sdfgi_use_occlusion = true
+sdfgi_min_cell_size = 0.4
+sdfgi_cascade0_distance = 25.6
+sdfgi_max_distance = 409.6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nq3l5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_deuvd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2cap"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_dtimt"]
+
+[sub_resource type="Curve3D" id="Curve3D_ppc4o"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 5, 11, 0, 0, 0, 0, 0, 0, -12, 5, 0, 0, 0, 0, 0, 0, 0, 0, 5, -11, 0, 0, 0, 0, 0, 0, 12, 5, 0, 0, 0, 0, 0, 0, 0, 0, 5, 11),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="scene_debug_tire" type="Node3D"]
+script = ExtResource("1_rtomu")
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mp3qn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.937889, 0.346936, 0, -0.346936, -0.937889, 0, 2.70024, 9.00832)
+light_color = Color(1, 0.682353, 0.658824, 1)
+light_energy = 4.2
+shadow_enabled = true
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.55185, 0.896215, -5.43565)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("CapsuleMesh_nq3l5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_deuvd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, -2.18557e-06, 50, 0, -50, -2.18557e-06, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_c2cap")
+mesh = SubResource("QuadMesh_dtimt")
+
+[node name="node_joueur" type="Node3D" parent="."]
+
+[node name="turret" type="Node3D" parent="node_joueur"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39553, 0, -1.87995)
+
+[node name="Node3D" parent="node_joueur/turret" instance=ExtResource("1_l2i1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.03291, 0, -4.05871)
+
+[node name="Projectiles" type="Node3D" parent="node_joueur"]
+
+[node name="movement_camera" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97843, 0)
+curve = SubResource("Curve3D_ppc4o")
+
+[node name="camera" parent="movement_camera" instance=ExtResource("2_rtomu")]
+transform = Transform3D(0.675267, 0, 0.736655, 0, 0.999322, 0, -0.736655, 0, 0.675267, 0, 5, 11)

@@ -1,0 +1,245 @@
+[gd_scene load_steps=10 format=3 uid="uid://ct414hrv44mea"]
+
+[ext_resource type="Texture2D" uid="uid://b3qao8rfs888g" path="res://image/test_card.png" id="1_vnaac"]
+[ext_resource type="Script" uid="uid://c5wv0w8jaecwp" path="res://scripts/scripts_control/card_button/card_button.gd" id="2_pakvm"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w7yxt"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(155, 197, 0)
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 50.0
+linear_accel_max = 50.0
+radial_accel_min = 30.09
+radial_accel_max = 52.58
+scale_max = 3.0
+color = Color(1, 85.902, 0.156863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xrxwj"]
+font_size = 40
+
+[sub_resource type="Animation" id="Animation_pakvm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card_button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card_button:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(247.5, 315)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("card_button:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vnaac"]
+resource_name = "card_select"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card_button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(3.86375, 2.14355),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card_button:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(247.5, 315), Vector2(310, 394)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("card_button:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-3.98775e-07, -7.71823e-07), Vector2(-31, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GPUParticles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_w7yxt"]
+resource_name = "card_unselect"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card_button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2.14355, 3.86375),
+"update": 0,
+"values": [Vector2(0, -60), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card_button:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(310, 394), Vector2(247.5, 315)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("card_button:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-31, 0), Vector2(-3.98775e-07, -7.71823e-07)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GPUParticles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xrxwj"]
+resource_name = "shake"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card_button:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.1309, -0.1309, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8inl4"]
+_data = {
+&"RESET": SubResource("Animation_pakvm"),
+&"card_select": SubResource("Animation_vnaac"),
+&"card_unselect": SubResource("Animation_w7yxt"),
+&"shake": SubResource("Animation_xrxwj")
+}
+
+[node name="Card_1" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(129, 141)
+emitting = false
+amount = 1000
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_w7yxt")
+
+[node name="card_button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 247.5
+offset_bottom = 315.0
+pivot_offset = Vector2(123.75, 157)
+icon = ExtResource("1_vnaac")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_pakvm")
+
+[node name="card_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 315.0
+offset_right = 247.0
+offset_bottom = 384.0
+text = "blab"
+label_settings = SubResource("LabelSettings_xrxwj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationSelect" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8inl4")
+}
+
+[node name="AnimationShake" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8inl4")
+}
+
+[connection signal="pressed" from="card_button" to="card_button" method="_on_pressed"]
