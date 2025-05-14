@@ -75,3 +75,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.17, 0, 1.97598)
 
 [node name="roc1(moche)" parent="props/rocks" instance=ExtResource("7_j1v7c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.95406, -0.28809, 1.33384)
+
+[node name="world_effect" type="Node3D" parent="props"]

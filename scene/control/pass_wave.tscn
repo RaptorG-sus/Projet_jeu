@@ -1,18 +1,25 @@
 [gd_scene load_steps=16 format=3 uid="uid://cphvftnt5nank"]
 
 [ext_resource type="Script" uid="uid://d2ut6fn8a8wfg" path="res://scripts/scripts_control/script_menu/pass_wave.gd" id="1_3oseq"]
-[ext_resource type="Texture2D" uid="uid://boyxepbn2u1vd" path="res://image/archer_card.png" id="1_36qp3"]
 [ext_resource type="StyleBox" uid="uid://bj5t7gonyuni8" path="res://fichier_tres/layout_button_menu_hover.tres" id="2_se3di"]
-[ext_resource type="Texture2D" uid="uid://b3qao8rfs888g" path="res://image/test_card.png" id="2_uoe0k"]
 [ext_resource type="Script" uid="uid://dp2gmvv5sbhsb" path="res://scripts/scripts_control/script_menu/shop/shop.gd" id="2_w4s2e"]
 [ext_resource type="StyleBox" uid="uid://bcaqsj0r8dkly" path="res://fichier_tres/layout_button_menu.tres" id="3_3oseq"]
-[ext_resource type="Script" uid="uid://c5wv0w8jaecwp" path="res://scripts/scripts_control/card_button/card_button.gd" id="3_hpfph"]
+[ext_resource type="PackedScene" uid="uid://ct414hrv44mea" path="res://scene/control/card_shop.tscn" id="3_uoe0k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_00php"]
 font_size = 160
 
-[sub_resource type="LabelSettings" id="LabelSettings_36qp3"]
-font_size = 40
+[sub_resource type="Animation" id="Animation_m6j0y"]
+resource_name = "new_animation_2"
+
+[sub_resource type="Animation" id="Animation_i1llk"]
+resource_name = "select_card"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t68pt"]
+_data = {
+&"new_animation_2": SubResource("Animation_m6j0y"),
+&"select_card": SubResource("Animation_i1llk")
+}
 
 [sub_resource type="Animation" id="Animation_w4s2e"]
 length = 0.001
@@ -263,176 +270,37 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 script = ExtResource("2_w4s2e")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Shop"]
+[node name="GridContainer" type="GridContainer" parent="Shop"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.376
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.376
 anchor_bottom = 0.5
-offset_left = -721.92
-offset_top = -390.0
-offset_right = 558.08
-offset_bottom = 390.0
-grow_horizontal = 2
-localize_numeral_system = false
-theme_override_constants/separation = 520
+offset_left = 250.0
+offset_top = -417.5
+offset_right = 1197.5
+offset_bottom = 417.5
+grow_vertical = 2
+theme_override_constants/h_separation = 350
+theme_override_constants/v_separation = 450
+columns = 3
 
-[node name="VBoxContainer1" type="VBoxContainer" parent="Shop/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 450
-
-[node name="card_1" type="Control" parent="Shop/HBoxContainer/VBoxContainer1"]
+[node name="Card1" parent="Shop/GridContainer" instance=ExtResource("3_uoe0k")]
 layout_mode = 2
 
-[node name="card_1_button" type="Button" parent="Shop/HBoxContainer/VBoxContainer1/card_1"]
-layout_mode = 0
-offset_right = 247.5
-offset_bottom = 315.0
-icon = ExtResource("2_uoe0k")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("3_hpfph")
-
-[node name="card_label" type="Label" parent="Shop/HBoxContainer/VBoxContainer1/card_1"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 315.0
-offset_right = 247.0
-offset_bottom = 384.0
-text = "blab"
-label_settings = SubResource("LabelSettings_36qp3")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="card_2" type="Control" parent="Shop/HBoxContainer/VBoxContainer1"]
+[node name="Card2" parent="Shop/GridContainer" instance=ExtResource("3_uoe0k")]
 layout_mode = 2
 
-[node name="card_2_button" type="Button" parent="Shop/HBoxContainer/VBoxContainer1/card_2"]
-layout_mode = 0
-offset_right = 247.5
-offset_bottom = 315.0
-icon = ExtResource("1_36qp3")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("3_hpfph")
-
-[node name="card_label" type="Label" parent="Shop/HBoxContainer/VBoxContainer1/card_2"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 315.0
-offset_right = 247.0
-offset_bottom = 384.0
-text = "blab"
-label_settings = SubResource("LabelSettings_36qp3")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="Shop/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 450
-
-[node name="card_3" type="Control" parent="Shop/HBoxContainer/VBoxContainer2"]
+[node name="Card3" parent="Shop/GridContainer" instance=ExtResource("3_uoe0k")]
 layout_mode = 2
 
-[node name="card_3_button" type="Button" parent="Shop/HBoxContainer/VBoxContainer2/card_3"]
-layout_mode = 0
-offset_right = 247.5
-offset_bottom = 315.0
-icon = ExtResource("1_36qp3")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("3_hpfph")
-
-[node name="card_label" type="Label" parent="Shop/HBoxContainer/VBoxContainer2/card_3"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 315.0
-offset_right = 247.0
-offset_bottom = 384.0
-text = "blab"
-label_settings = SubResource("LabelSettings_36qp3")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="card_4" type="Control" parent="Shop/HBoxContainer/VBoxContainer2"]
+[node name="Card4" parent="Shop/GridContainer" instance=ExtResource("3_uoe0k")]
 layout_mode = 2
 
-[node name="card_4_button" type="Button" parent="Shop/HBoxContainer/VBoxContainer2/card_4"]
-layout_mode = 0
-offset_right = 247.5
-offset_bottom = 315.0
-icon = ExtResource("1_36qp3")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("3_hpfph")
-
-[node name="card_label" type="Label" parent="Shop/HBoxContainer/VBoxContainer2/card_4"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 315.0
-offset_right = 247.0
-offset_bottom = 384.0
-text = "blab"
-label_settings = SubResource("LabelSettings_36qp3")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="Shop/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 450
-
-[node name="card_5" type="Control" parent="Shop/HBoxContainer/VBoxContainer3"]
+[node name="Card5" parent="Shop/GridContainer" instance=ExtResource("3_uoe0k")]
 layout_mode = 2
 
-[node name="card_5_button" type="Button" parent="Shop/HBoxContainer/VBoxContainer3/card_5"]
-layout_mode = 0
-offset_right = 247.5
-offset_bottom = 315.0
-icon = ExtResource("1_36qp3")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("3_hpfph")
-
-[node name="card_label" type="Label" parent="Shop/HBoxContainer/VBoxContainer3/card_5"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 315.0
-offset_right = 247.0
-offset_bottom = 384.0
-text = "blab"
-label_settings = SubResource("LabelSettings_36qp3")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="card_6" type="Control" parent="Shop/HBoxContainer/VBoxContainer3"]
+[node name="Card6" parent="Shop/GridContainer" instance=ExtResource("3_uoe0k")]
 layout_mode = 2
-
-[node name="card_6_button" type="Button" parent="Shop/HBoxContainer/VBoxContainer3/card_6"]
-layout_mode = 0
-offset_right = 247.5
-offset_bottom = 315.0
-icon = ExtResource("1_36qp3")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("3_hpfph")
-
-[node name="card_label" type="Label" parent="Shop/HBoxContainer/VBoxContainer3/card_6"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 315.0
-offset_right = 247.0
-offset_bottom = 384.0
-text = "blab"
-label_settings = SubResource("LabelSettings_36qp3")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="pass_wave" type="Button" parent="Shop"]
 layout_mode = 0
@@ -454,21 +322,14 @@ offset_top = 320.0
 offset_right = 1749.0
 offset_bottom = 388.0
 
+[node name="AnimationCard" type="AnimationPlayer" parent="Shop"]
+libraries = {
+&"": SubResource("AnimationLibrary_t68pt")
+}
+
 [node name="animationWave" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_m6j0y")
 }
 
-[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer1/card_1/card_1_button" to="." method="_on_card_1_button_pressed"]
-[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer1/card_1/card_1_button" to="Shop/HBoxContainer/VBoxContainer1/card_1/card_1_button" method="_on_pressed"]
-[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer1/card_2/card_2_button" to="." method="_on_card_2_button_pressed"]
-[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer1/card_2/card_2_button" to="Shop/HBoxContainer/VBoxContainer1/card_2/card_2_button" method="_on_pressed"]
-[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer2/card_3/card_3_button" to="." method="_on_card_3_button_pressed"]
-[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer2/card_3/card_3_button" to="Shop/HBoxContainer/VBoxContainer2/card_3/card_3_button" method="_on_pressed"]
-[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer2/card_4/card_4_button" to="." method="_on_card_4_button_pressed"]
-[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer2/card_4/card_4_button" to="Shop/HBoxContainer/VBoxContainer2/card_4/card_4_button" method="_on_pressed"]
-[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer3/card_5/card_5_button" to="." method="_on_card_5_button_pressed"]
-[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer3/card_5/card_5_button" to="Shop/HBoxContainer/VBoxContainer3/card_5/card_5_button" method="_on_pressed"]
-[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer3/card_6/card_6_button" to="." method="_on_card_6_button_pressed"]
-[connection signal="pressed" from="Shop/HBoxContainer/VBoxContainer3/card_6/card_6_button" to="Shop/HBoxContainer/VBoxContainer3/card_6/card_6_button" method="_on_pressed"]
 [connection signal="pressed" from="Shop/pass_wave" to="." method="_on_pass_wave_pressed"]

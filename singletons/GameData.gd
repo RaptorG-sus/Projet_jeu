@@ -17,6 +17,7 @@ var wave_data = [
 	]
 ]
 
+
 var enemy_data = {
 	"enemy_test":{
 		"life" : 100,
@@ -38,13 +39,13 @@ var camera_data = {
 
 var turret_data = {
 	#nom de la tours
-	"turret_test" : {
+	"villager" : {
 		# état initial dès qu'on la pose
 		"base" : {
 			#toute ces stats initial
 			"range" = 5,
 			"damage" = 1000,
-			"attack_speed" = 0.5,
+			"attack_speed" =1.25,
 			"bullet_speed" = 30,
 			"pierce" = 1
 		},
@@ -57,6 +58,24 @@ var turret_data = {
 				#stat rajouté à l'état initial
 				"range" = 2,
 				"damage" = 5
+			},
+			"tier 2":{
+				"cost" = 600,
+				"damage" = 5
+			}
+		},
+
+		"nature" : {
+			"tier 1":{
+				"cost" = 100,
+				"pierce" = 1
+			},
+			"tier 2":{
+				"cost" = 400,
+				"pierce" = 1
+			},
+			"tier 3":{
+				"cost" = 0
 			}
 		}
 	}

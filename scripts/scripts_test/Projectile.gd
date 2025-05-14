@@ -1,12 +1,16 @@
 extends Area3D
 
 
-@onready var enemy_pos :Vector3
-@onready var parent_pos :Vector3
-@onready var damage
-@onready var pierce
-@onready var speed
+var enemy_pos :Vector3
+var parent_pos :Vector3
+var damage
+var pierce
+var speed
+var angle
 
+func _ready() -> void:
+	await get_tree().process_frame
+	look_at(enemy_pos)
 
 func _process(delta: float) -> void:
 	global_position += delta * speed * vecteur_directeur(parent_pos, enemy_pos)
@@ -21,6 +25,12 @@ func vecteur_directeur(p: Vector3, e: Vector3) -> Vector3:
 	vecteur_directeur.x = (e.x - p.x) / somme
 	vecteur_directeur.y = (e.y - p.y) / somme
 	vecteur_directeur.z = (e.z - p.z) / somme
+
+	if(angle != 0.0):
+		var angle_rad = deg_to_rad(angle)
+		var y_rotation = Basis(Vector3.UP, angle_rad)
+		vecteur_directeur = y_rotation * vecteur_directeur
+		vecteur_directeur = vecteur_directeur.normalized()
 
 	return vecteur_directeur
 

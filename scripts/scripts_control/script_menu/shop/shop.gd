@@ -2,7 +2,6 @@ extends Control
 
 var card_data = GameData.card_data
 
-
 @export var liste_generer = []
 @export var liste_price = []
 @export var liste_mult = [1,1,1,1,1,1]
@@ -21,10 +20,9 @@ func genere_card():
 	return liste_generer
 	
 func create_card(card_name,number_card,position):
-	print(card_name)
-	var container = (position + 1)/2															# container pour sélectionner le vertical container
-	container = "VBoxContainer" + str(container)												# pour créer le str qui selectionnera le dit container
-	position = "card_" + str(position)															# prend la position et la transforme en string avec "card_" devant, permet de selectionner la carte
+	position = "Card" + str(position)															# prend la position et la transforme en string avec "card_" devant, permet de selectionner la carte
 	var card_icon = card_data[card_name]["texture"]									# initialise l'icon de la carte sur le node
-	$HBoxContainer.get_node(container).get_node(position).get_node(position + "_button").set_button_icon(load(card_icon))			# pose l'icon après l'initialise
-	$HBoxContainer.get_node(container).get_node(position).get_node("card_label").text = card_data[card_name]["text"] + ' ' + str(liste_price[int(position)-1])			# met le text en dessous (str(liste[int(position)-1]) je n'ai pas trouvé autrement ;-;)
+	$GridContainer.get_node(position).get_node("card_button").number_card = int(position)-1
+	print($GridContainer.get_node(position).get_node("card_button").number_card)
+	$GridContainer.get_node(position).get_node("card_button").set_button_icon(load(card_icon))			# pose l'icon après l'initialise
+	$GridContainer.get_node(position).get_node("card_label").text = card_data[card_name]["text"] + ' ' + str(liste_price[int(position)-1])			# met le text en dessous (str(liste[int(position)-1]) je n'ai pas trouvé autrement ;-;)

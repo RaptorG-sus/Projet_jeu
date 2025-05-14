@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dumvwi74se3yj" path="res://scripts/scripts_test/Scene_Principal.gd" id="1_racit"]
 [ext_resource type="PackedScene" uid="uid://yxnxe0jib0vn" path="res://scene/test_map/test_map.tscn" id="2_fpj1o"]
-[ext_resource type="PackedScene" uid="uid://by6c3btxqtlc1" path="res://scene/turret_scene/turret.tscn" id="2_uefgs"]
+[ext_resource type="PackedScene" uid="uid://by6c3btxqtlc1" path="res://scene/turret_scene/villager.tscn" id="2_uefgs"]
 [ext_resource type="PackedScene" uid="uid://crrxk7axvdk4x" path="res://scene/HUD/statistic.tscn" id="4_sn56u"]
 [ext_resource type="PackedScene" uid="uid://brcint81168kc" path="res://scene/control/pause.tscn" id="5_g32rf"]
 [ext_resource type="PackedScene" uid="uid://cxjw735l6bvop" path="res://scene/control/death_menu.tscn" id="7_v710u"]
@@ -14,7 +14,7 @@ sky_top_color = Color(0.682353, 0.431373, 0.298039, 1)
 sky_horizon_color = Color(0, 0.710246, 0.967064, 1)
 sky_curve = 0.310579
 
-[sub_resource type="Sky" id="Sky_3hnpm"]
+[sub_resource type="Sky" id="Sky_sn56u"]
 sky_material = SubResource("ProceduralSkyMaterial_nbbgv")
 process_mode = 3
 
@@ -22,13 +22,15 @@ process_mode = 3
 background_mode = 2
 background_color = Color(0.728305, 0.763126, 0.917426, 1)
 background_energy_multiplier = 1.89
-sky = SubResource("Sky_3hnpm")
+sky = SubResource("Sky_sn56u")
 ambient_light_source = 2
-ambient_light_color = Color(0.737193, 0.737193, 0.737193, 1)
+ambient_light_color = Color(0.783523, 0.783523, 0.783523, 1)
 ambient_light_energy = 0.26
 ssao_radius = 14.95
+ssao_power = 0.549032
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
+sdfgi_min_cell_size = 0.4
 
 [node name="Scene_principal" type="Node3D"]
 script = ExtResource("1_racit")
@@ -38,7 +40,7 @@ script = ExtResource("1_racit")
 [node name="turret" type="Node3D" parent="node_joueur"]
 
 [node name="Node3D" parent="node_joueur/turret" instance=ExtResource("2_uefgs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45041, 0, -6.05673)
 
 [node name="Projectiles" type="Node3D" parent="node_joueur"]
 
@@ -48,6 +50,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="node_environnement"]
 transform = Transform3D(1, 0, 0, 0, -0.937889, 0.346936, 0, -0.346936, -0.937889, 0, 2.70024, 9.00832)
+light_color = Color(1, 0.682353, 0.658824, 1)
+light_energy = 4.2
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="node_environnement"]
