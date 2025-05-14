@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://by28bkvf8cabk"]
+[gd_scene load_steps=8 format=3 uid="uid://by28bkvf8cabk"]
 
 [ext_resource type="PackedScene" uid="uid://cjathopt1pkau" path="res://3d_models/mannequin_animation.glb" id="1_c70wj"]
 [ext_resource type="ArrayMesh" uid="uid://d4eadmgrblkdj" path="res://3d_models/character/props_character/villager/natural/natural_bracelet.res" id="2_l4wfp"]
@@ -6,22 +6,101 @@
 [ext_resource type="PackedScene" uid="uid://dk2luq75v8lyx" path="res://3d_models/character/props_character/villager/magique/magique_chapeau.tscn" id="4_7sq10"]
 [ext_resource type="PackedScene" uid="uid://rexk52fuv4rl" path="res://3d_models/character/props_character/villager/magique/magique_cheapeau_tier_2.tscn" id="5_sxd6q"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7sq10"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_clp07"]
 albedo_color = Color(0.437049, 0.200295, 0.0799018, 1)
 
 [node name="mannequin_animation" instance=ExtResource("1_c70wj")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
+[node name="Abdo" parent="Armature/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="AvtBrasG" parent="Armature/Skeleton3D" index="1"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="AvtBrasG_001" parent="Armature/Skeleton3D" index="2"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="Cou" parent="Armature/Skeleton3D" index="3"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="Coude" parent="Armature/Skeleton3D" index="4"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="Coude_001" parent="Armature/Skeleton3D" index="5"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="Cube_001" parent="Armature/Skeleton3D" index="6"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
 [node name="Cube_002" parent="Armature/Skeleton3D" index="7"]
 editor_description = "avant bras droit"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.15184e-10, 0.0104685, 0)
-visible = false
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="Cube_003" parent="Armature/Skeleton3D" index="8"]
+material_override = SubResource("StandardMaterial3D_7sq10")
 
 [node name="Cube_004" parent="Armature/Skeleton3D" index="9"]
 editor_description = "pouce droit"
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="EpauleG" parent="Armature/Skeleton3D" index="10"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="EpauleG_001" parent="Armature/Skeleton3D" index="11"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="Fesse" parent="Armature/Skeleton3D" index="12"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="JambeG" parent="Armature/Skeleton3D" index="13"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="JambeG_001" parent="Armature/Skeleton3D" index="14"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="MoiJambeG" parent="Armature/Skeleton3D" index="15"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="MoiJambeG_001" parent="Armature/Skeleton3D" index="16"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="MoiJambeG_002" parent="Armature/Skeleton3D" index="17"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="MoiJambeG_003" parent="Armature/Skeleton3D" index="18"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="PiedG" parent="Armature/Skeleton3D" index="19"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="PiedG_001" parent="Armature/Skeleton3D" index="20"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="PouceG" parent="Armature/Skeleton3D" index="21"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="PouceG_001" parent="Armature/Skeleton3D" index="22"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="Tete" parent="Armature/Skeleton3D" index="23"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="torse" parent="Armature/Skeleton3D" index="24"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="TybiaG" parent="Armature/Skeleton3D" index="25"]
+material_override = SubResource("StandardMaterial3D_7sq10")
+
+[node name="TybiaG_001" parent="Armature/Skeleton3D" index="26"]
+material_override = SubResource("StandardMaterial3D_7sq10")
 
 [node name="natural_tier1" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="27"]
 transform = Transform3D(0.773704, 0.151024, 0.615284, 0.488153, 0.476949, -0.730908, -0.403844, 0.865859, 0.295294, -0.276795, 0.0472944, -0.899855)
+visible = false
 bone_name = "mixamorig_RightHand"
 bone_idx = 18
 
@@ -33,6 +112,7 @@ skeleton = NodePath("../../../..")
 
 [node name="natural_tier3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="28"]
 transform = Transform3D(0.798959, -0.0165911, 0.601157, 0.582605, 0.269222, -0.766872, -0.149122, 0.962936, 0.224763, -0.271323, -0.0414965, -1.21744)
+visible = false
 bone_name = "mixamorig_RightForeArm"
 bone_idx = 17
 
@@ -50,7 +130,6 @@ transform = Transform3D(1, 8.07177e-10, -5.58794e-09, 9.88121e-09, 1, 1.89175e-1
 
 [node name="magique_tier2" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="30"]
 transform = Transform3D(1, -8.47377e-19, -6.88697e-18, 2.74581e-17, -7.10543e-15, 1, 2.60861e-16, -1, -1.49012e-08, -0.001159, 0.0529694, -1.79121)
-visible = false
 bone_name = "mixamorig_HeadTop_End"
 bone_idx = 6
 

@@ -1,6 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dk2luq75v8lyx"]
 
 [ext_resource type="PackedScene" uid="uid://bofgbr5xnk0x" path="res://3d_models/character/props_character/villager/magique/magique_chapeau.glb" id="1_h0c4i"]
+[ext_resource type="Material" uid="uid://coi2glfpvds12" path="res://material_texture/hat_ceinture_embout.tres" id="2_wgj6k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0c4i"]
 albedo_color = Color(0.270588, 0.176471, 0.00392157, 1)
@@ -18,11 +19,6 @@ normal_enabled = true
 normal_scale = 0.43
 normal_texture = SubResource("NoiseTexture2D_wgj6k")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlv5x"]
-albedo_color = Color(0.996706, 0.787652, 0.179646, 1)
-metallic = 1.0
-roughness = 0.38
-
 [node name="magique_chapeau" instance=ExtResource("1_h0c4i")]
 
 [node name="anneau_chapeau" parent="." index="0"]
@@ -32,4 +28,4 @@ material_override = SubResource("StandardMaterial3D_h0c4i")
 material_override = SubResource("StandardMaterial3D_g2pad")
 
 [node name="Cube" parent="." index="2"]
-material_override = SubResource("StandardMaterial3D_qlv5x")
+material_override = ExtResource("2_wgj6k")

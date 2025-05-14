@@ -46,7 +46,6 @@ func _process(delta: float) -> void:
 			flag_current_animation = false
 
 	if(!$mannequin_animation/AnimationPlayer.is_playing() and flag_animation_playing):
-		print(get_parent().turret_name)
 		$mannequin_animation/AnimationPlayer.play("Armature|mixamo_com|Layer0")
 		flag_current_animation = true
 		
@@ -76,14 +75,14 @@ func _on_timer_timeout() -> void:
 func throw_projectile(angle = 0):
 	var p = projectile.instantiate()
 
+	p.enemy_pos = liste_enemy[0].global_position
 	$"../../.."/Projectiles.add_child(p)
 	p.global_position = $mannequin_animation/Marker3D.global_position                
-	p.enemy_pos = liste_enemy[0].global_position
 	p.angle = angle
 	p.parent_pos = $mannequin_animation/Marker3D.global_position
 	p.damage = damage
 	p.pierce = pierce
-	p.speed = bullet_speed
+	p.speed = bullet_speed*0.1
 #gestion détection enemies
 #_______________________________________________________________________________________________________________________________
 func _on_area_entered(area: Area3D) -> void:

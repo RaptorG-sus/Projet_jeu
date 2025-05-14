@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg625lb7omp1b"]
+
+[ext_resource type="PackedScene" uid="uid://hjahtp13gjel" path="res://3d_models/character/props_character/villager/natural/projectile_villager_nature_tier2.glb" id="1_ynbie"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p8ayb"]
+albedo_color = Color(0.261849, 0.131119, 0.0183127, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dlfsr"]
+albedo_color = Color(0.872596, 0.611711, 0.448891, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjuf2"]
+albedo_color = Color(0.890555, 0.702608, 0.563342, 1)
+
+[node name="projectile_villager_nature_tier2" instance=ExtResource("1_ynbie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Cylindre" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_p8ayb")
+
+[node name="Cylindre_001" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_dlfsr")
+
+[node name="Cylindre_002" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_wjuf2")

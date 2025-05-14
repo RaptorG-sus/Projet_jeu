@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5t7r4pcxujm5"]
+[gd_scene load_steps=9 format=3 uid="uid://c5t7r4pcxujm5"]
 
 [ext_resource type="Script" uid="uid://ck06rjhoo4yua" path="res://scripts/scripts_control/script_menu/menu_test.gd" id="1_68tt6"]
 [ext_resource type="Texture2D" uid="uid://boyxepbn2u1vd" path="res://image/archer_card.png" id="1_n1asj"]
 [ext_resource type="StyleBox" uid="uid://bcaqsj0r8dkly" path="res://fichier_tres/layout_button_menu.tres" id="3_eu4nb"]
 [ext_resource type="StyleBox" uid="uid://bj5t7gonyuni8" path="res://fichier_tres/layout_button_menu_hover.tres" id="3_w5wt1"]
+[ext_resource type="Script" uid="uid://b8p22jvv7s5v3" path="res://scripts/script debug/debug_tire.gd" id="5_i12op"]
 
 [sub_resource type="Gradient" id="Gradient_2liuk"]
 interpolation_mode = 2
@@ -94,5 +95,14 @@ theme_override_styles/hover = ExtResource("3_w5wt1")
 theme_override_styles/normal = ExtResource("3_eu4nb")
 text = "quit :("
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 370.0
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 35
+text = "debug tire"
+script = ExtResource("5_i12op")
+
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

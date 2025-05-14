@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxqvfammk7mal"]
+[gd_scene load_steps=5 format=3 uid="uid://cxqvfammk7mal"]
 
 [ext_resource type="Script" uid="uid://clccvnjojhwlw" path="res://scripts/scripts_test/Projectile.gd" id="1_b4k6h"]
+[ext_resource type="PackedScene" uid="uid://dg625lb7omp1b" path="res://3d_models/character/props_character/villager/natural/projectile_villager_nature_tier_2.tscn" id="2_pee6t"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_8qen7"]
-radius = 0.1
-height = 0.2
+[sub_resource type="PrismMesh" id="PrismMesh_pee6t"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3u0cn"]
 radius = 0.1
@@ -20,10 +19,15 @@ one_shot = true
 autostart = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_8qen7")
+transform = Transform3D(1, 0, 0, 0, -0.099285, 0.995059, 0, -0.995059, -0.099285, 0, 0, 0)
+visible = false
+mesh = SubResource("PrismMesh_pee6t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_3u0cn")
+
+[node name="projectile_villager_nature_tier2" parent="." instance=ExtResource("2_pee6t")]
+transform = Transform3D(0.106201, 0, 0, 0, -3.61065e-09, 0.106201, 0, -0.0826021, -4.64219e-09, 0, 0, 0)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,13 +1,16 @@
 extends Area3D
 
 
-@onready var enemy_pos :Vector3
-@onready var parent_pos :Vector3
-@onready var damage
-@onready var pierce
-@onready var speed
-@onready var angle
+var enemy_pos :Vector3
+var parent_pos :Vector3
+var damage
+var pierce
+var speed
+var angle
 
+func _ready() -> void:
+	await get_tree().process_frame
+	look_at(enemy_pos)
 
 func _process(delta: float) -> void:
 	global_position += delta * speed * vecteur_directeur(parent_pos, enemy_pos)

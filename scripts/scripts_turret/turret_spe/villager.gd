@@ -5,7 +5,6 @@ var villager_data = GameData.turret_data["villager"]
 var flag_nature_tier3 = false
 
 func upgrade_gen(data):
-	print(name)
 	for deep_data in data:
 		print(deep_data)
 		match deep_data:

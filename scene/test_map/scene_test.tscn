@@ -14,13 +14,13 @@ sky_top_color = Color(0.682353, 0.431373, 0.298039, 1)
 sky_horizon_color = Color(0, 0.710246, 0.967064, 1)
 sky_curve = 0.310579
 
-[sub_resource type="Sky" id="Sky_3hnpm"]
+[sub_resource type="Sky" id="Sky_sn56u"]
 sky_material = SubResource("ProceduralSkyMaterial_nbbgv")
 process_mode = 3
 
 [sub_resource type="Environment" id="Environment_2e04e"]
 background_mode = 2
-sky = SubResource("Sky_3hnpm")
+sky = SubResource("Sky_sn56u")
 ambient_light_source = 2
 ambient_light_color = Color(0.783523, 0.783523, 0.783523, 1)
 ssao_power = 0.549032
