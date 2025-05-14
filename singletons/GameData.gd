@@ -17,7 +17,6 @@ var wave_data = [
 	]
 ]
 
-
 var enemy_data = {
 	"enemy_test":{
 		"life" : 100,

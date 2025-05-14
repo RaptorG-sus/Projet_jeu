@@ -1,4 +1,5 @@
-extends PathFollow3D
+class_name Enemy extends PathFollow3D
+
 
 var enemy_data = GameData.enemy_data
 var nom_enemy
