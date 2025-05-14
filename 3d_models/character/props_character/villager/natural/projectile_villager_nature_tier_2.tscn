@@ -12,7 +12,6 @@ albedo_color = Color(0.872596, 0.611711, 0.448891, 1)
 albedo_color = Color(0.890555, 0.702608, 0.563342, 1)
 
 [node name="projectile_villager_nature_tier2" instance=ExtResource("1_ynbie")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Cylindre" parent="." index="0"]
 material_override = SubResource("StandardMaterial3D_p8ayb")

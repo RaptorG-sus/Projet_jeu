@@ -20,14 +20,17 @@ process_mode = 3
 
 [sub_resource type="Environment" id="Environment_2e04e"]
 background_mode = 2
+background_color = Color(0.728305, 0.763126, 0.917426, 1)
+background_energy_multiplier = 1.89
 sky = SubResource("Sky_sn56u")
 ambient_light_source = 2
 ambient_light_color = Color(0.783523, 0.783523, 0.783523, 1)
+ambient_light_energy = 0.26
+ssao_radius = 14.95
 ssao_power = 0.549032
+sdfgi_enabled = true
 sdfgi_use_occlusion = true
 sdfgi_min_cell_size = 0.4
-sdfgi_cascade0_distance = 25.6
-sdfgi_max_distance = 409.6
 
 [node name="Scene_principal" type="Node3D"]
 script = ExtResource("1_racit")
