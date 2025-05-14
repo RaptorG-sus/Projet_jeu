@@ -16,6 +16,7 @@ var bullet_speed = turret_data["villager"]["base"]["bullet_speed"]
 
 signal throw
 
+
 @onready var current_enemy = null
 var liste_enemy = []
 

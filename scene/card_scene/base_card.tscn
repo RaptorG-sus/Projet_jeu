@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://1bsb54j21b0n"]
+[gd_scene load_steps=6 format=3 uid="uid://b0d0wna8a57vt"]
 
 [ext_resource type="Script" uid="uid://bhgondenxbklh" path="res://scripts/scripts_card/card_overlay.gd" id="2_md5nq"]
 
@@ -37,5 +37,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_dsam4")
 }
 
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
 [connection signal="mouse_entered" from="." to="." method="_mouse_enter"]
 [connection signal="mouse_exited" from="." to="." method="_mouse_exit"]

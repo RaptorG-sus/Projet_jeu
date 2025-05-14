@@ -58,6 +58,10 @@ var turret_data = {
 				#stat rajouté à l'état initial
 				"range" = 2,
 				"damage" = 5
+			},
+			"tier 2":{
+				"cost" = 600,
+				"damage" = 5
 			}
 		},
 

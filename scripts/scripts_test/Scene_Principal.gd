@@ -29,6 +29,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("spawn_card_temp"):				# fonction début pour spawn un card dans le deck (carte archer)
 		spawn_card("archer_card")
 
+	if draggingCollider:
+		draggingCollider.global_position = mousePosition
 
 
 func spawn_enemy():													# fonction pour faire spawn une vague, vague crée non aléatoirement dans le singleton GameData
@@ -52,40 +54,71 @@ func spawn_card(name_card):
 	new_card.card_name = name_card
 	var container = $HUD/deck/HBoxContainer
 	container.add_child(new_card, true)			# créer la carte dans le deck
-	
+	new_card.mouse_in.connect(_on_mouse_in)
 		
 	array_card.append(new_card)							# met la carte dans une liste
-
-	"""new_card.scale = Vector3(0.5,0.5,0.5)				# change les mesure des cartes
-	#new_card.position = Vector3(0, -0.7, -0.9)
-	decal_card()
-	for i in range(len(array_card)):
-		array_card[i].get_node("card").render_priority = len(array_card) - i		"""
-		
-
-func decal_card():
-	"""
-	if len(array_card) < 5:					# vérification si inférieur à 5
-		var compt = len(array_card) / 2			# divise par deux la longueur de la liste carte
-		if len(array_card)%2 == 0:					# vérifie si c'est le nombre de carte est pari ou impair
-			compt -= 1
-			for i in range(len(array_card)):		# boucle de la longueur du nmobre de carte
-				print(i,compt)
-				array_card[i].position = Vector3(-(0.3+0.6*(compt - i)),-0.7,-0.9+i*0.01)			# positionne la carte en fonction de ça position de la liste
-				array_card[i].get_node("hitbox").position = Vector3(0,-0.44,-(len(array_card)-i)*0.01)	# positionne ça hitbox
-		else:																						# similaire mais avec des coordonnées différentes pour les liste impair
-			for i in range(len(array_card)):
-				array_card[i].position = Vector3(-(0.6*(compt - i)),-0.7,-0.9+i*0.01)
-				array_card[i].get_node("hitbox").position = Vector3(0,-0.44,-(len(array_card)-i)*0.01)
-	else:								# si il y a plus de 5 carte alors l'espacement est automatique, donc similaire au précédent mais avec une distance calculé par rapport à son nombre
-		for i in range(len(array_card)):
-			print(i)
-			array_card[i].position = Vector3(-(0.93 - ((i*lenght_deck)/(len(array_card)-1))),-0.7,-0.9)
-			array_card[i].get_node("hitbox").position = Vector3(0,-0.44,-(len(array_card)-i)*0.01)
-			print(array_card[i].position)"""
-	
 
 
 func _on_enemy_died() -> void:
 	print("signal emit",number_enemy)
 	number_enemy -= 1
+	
+	
+	
+	
+	
+	
+	# code for the drag & drop
+
+var draggingCollider
+var mousePosition
+var doDrag = false
+	
+	
+	
+func _on_mouse_in(vector:Vector2, click:bool, button_statment:bool):
+		
+	var intersect
+	
+	intersect = get_mouse_intersect(vector)
+	if intersect: mousePosition = intersect.position 
+	#snap on collider
+	#if intersect: mousePosition = intersect.collider.global_position
+	print(intersect)
+	if click && intersect:
+
+		if button_statment:
+			doDrag = true
+			drag_and_drop(intersect)
+		elif !button_statment:
+			doDrag = false
+			drag_and_drop(intersect)
+
+
+
+func drag_and_drop(intersect):
+	if !draggingCollider && doDrag:
+		draggingCollider = intersect.collider
+		draggingCollider.set_collision_layer(false)
+	elif draggingCollider:
+		draggingCollider.set_collision_layer(true)
+		draggingCollider = null
+	
+	
+func get_mouse_intersect(mousePosition):
+	var currentCamera = get_viewport().get_camera_3d()
+	var params = PhysicsRayQueryParameters3D.new()
+	
+	params.from = currentCamera.project_ray_origin(mousePosition)
+	params.to = currentCamera.project_position(mousePosition, 1000)
+	if draggingCollider: params.exclude = [draggingCollider]
+	
+	var worldspace = get_world_3d().direct_space_state
+	var result = worldspace.intersect_ray(params)
+	
+	if result:
+		var normal = result.normal
+		# CONDITION sur l'angle 
+		return result
+		
+	return null
