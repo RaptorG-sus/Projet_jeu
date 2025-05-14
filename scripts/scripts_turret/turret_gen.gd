@@ -1,14 +1,14 @@
 extends Area3D
 
 var projectile :PackedScene = preload("res://scene/props/projectile.tscn")
-var turret_data = GameData.turret_data
+var turret_data = GameData.turret_data["turret_test"]["base"]
 var flag_menu_upgrade = false
 
-var attack_speed = turret_data["turret_test"]["base"]["attack_speed"]
-var range_turret = turret_data["turret_test"]["base"]["range"]
-var damage = turret_data["turret_test"]["base"]["damage"]
-var pierce = turret_data["turret_test"]["base"]["pierce"]
-var bullet_speed = turret_data["turret_test"]["base"]["bullet_speed"]
+var attack_speed = turret_data["attack_speed"]
+var range_turret = turret_data["range"]
+var damage = turret_data["damage"]
+var pierce = turret_data["pierce"]
+var bullet_speed = turret_data["bullet_speed"]
 
 @onready var current_enemy = null
 var liste_enemy = []
