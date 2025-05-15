@@ -1,6 +1,6 @@
 extends Node3D
 
-var turret_name = "villager"
+var turret_name = "villager_turret"
 var villager_data = GameData.turret_data["villager"]
 var flag_nature_tier3 = false
 

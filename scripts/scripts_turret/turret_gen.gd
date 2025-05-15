@@ -1,27 +1,49 @@
 extends Area3D
 
-var projectile :PackedScene = preload("res://scene/props/projectile.tscn")
 var turret_data = GameData.turret_data
-
+var upgrade_tot = TurretData
+var turret_function = GameFunction
 var flag_menu_upgrade = false
 var flag_current_animation = true
 var flag_animation_playing = false
-#var turret_name = str(get_parent().name)
+#var turret_name : String = $"..".turret_name
 
-var attack_speed = turret_data["villager"]["base"]["attack_speed"]
-var range_turret = turret_data["villager"]["base"]["range"]
-var damage = turret_data["villager"]["base"]["damage"]
-var pierce = turret_data["villager"]["base"]["pierce"]
-var bullet_speed = turret_data["villager"]["base"]["bullet_speed"]
+# stat de la tours modifié dans turretData avec la fonction upgrade_tot
+var attack_speed
+var range_turret
+var damage 
+var pierce 
+var bullet_speed 
+var angle 
+var bullet_number 
+var shape 
+var projectile
+
+var cost_gen
+var cost_magique
+var cost_nature
+var cost_militaire
+var cost_scientifique
 
 signal throw
 
+@onready var turret_name = "villager" 
 
 @onready var current_enemy = null
 var liste_enemy = []
 
+# BIEN METTRE L'ANIMATION ET LE MARKER AU NOM DE BASE, SINON LE CODE NE FONCTIONNE PLUS
 func _ready() -> void:
+
+	print(self)
+	upgrade_tot.upgrade_tot(self,0)
+	print(damage)
+
+	shape = shape.instantiate()
+	add_child(shape)
 	rotate_y(180)
+	
+
 	$".".input_ray_pickable = false
 	$Timer.set_wait_time(attack_speed)
 	$CollisionShape3D.shape.set_radius(range_turret)
@@ -40,14 +62,13 @@ func _process(delta: float) -> void:
 	if $CollisionShape3D.shape.get_radius() != range_turret:
 		$CollisionShape3D.shape.set_radius(range_turret)
 	
-	if($mannequin_animation/AnimationPlayer.is_playing()):
-		if(round_to_dec($mannequin_animation/AnimationPlayer.get_current_animation_position(),2)>= 2.47 and flag_current_animation):
-			throw_projectile()
-			throw.emit()
+	if(shape.get_node("AnimationPlayer").is_playing()):
+		if(round_to_dec(shape.get_node("AnimationPlayer").get_current_animation_position(),2)>= 2.47 and flag_current_animation):
+			turret_function.throw_projectile_mod(angle,bullet_number, damage, pierce, bullet_speed, liste_enemy[0].global_position, shape.get_node("Marker3D").global_position, projectile, $"../../.."/Projectiles)
 			flag_current_animation = false
 
-	if(!$mannequin_animation/AnimationPlayer.is_playing() and flag_animation_playing):
-		$mannequin_animation/AnimationPlayer.play("Armature|mixamo_com|Layer0")
+	if(!shape.get_node("AnimationPlayer").is_playing() and flag_animation_playing):
+		shape.get_node("AnimationPlayer").play("Armature|mixamo_com|Layer0")
 		flag_current_animation = true
 		
 func smooth_rotation() -> void:
@@ -58,45 +79,19 @@ func smooth_rotation() -> void:
 	if rotation != r:
 		rotation -= rotation_need*ratio
 
-# gestion création de projectiles vers l'ennemis
-#_______________________________________________________________________________________________________________________________
-func _on_timer_timeout() -> void:
-	var p = projectile.instantiate()
-
-	$mannequin_animation/AnimationPlayer.play("Armature|mixamo_com|Layer0")
-	$"../../.."/Projectiles.add_child(p)
-	p.global_position = $mannequin_animation/Marker3D.global_position
-	p.enemy_pos = liste_enemy[0].global_position
-	p.parent_pos = $mannequin_animation/Marker3D.global_position
-	p.damage = damage
-	p.pierce = pierce
-	p.speed = bullet_speed
-
-
-func throw_projectile(angle = 0):
-	var p = projectile.instantiate()
-
-	p.enemy_pos = liste_enemy[0].global_position
-	$"../../.."/Projectiles.add_child(p)
-	p.global_position = $mannequin_animation/Marker3D.global_position                
-	p.angle = angle
-	p.parent_pos = $mannequin_animation/Marker3D.global_position
-	p.damage = damage
-	p.pierce = pierce
-	p.speed = bullet_speed*0.1
 #gestion détection enemies
 #_______________________________________________________________________________________________________________________________
 func _on_area_entered(area: Area3D) -> void:
 	liste_enemy.append(area)
 	if len(liste_enemy) == 1:
 		flag_animation_playing = true
-		$mannequin_animation/AnimationPlayer.play("Armature|mixamo_com|Layer0")
+		shape.get_node("AnimationPlayer").play("Armature|mixamo_com|Layer0")
 
 func _on_area_exited(area: Area3D) -> void:
 	liste_enemy.erase(area)
 	if len(liste_enemy) == 0:
-		if$mannequin_animation/AnimationPlayer.is_playing():
-			$mannequin_animation/AnimationPlayer.stop()
+		if shape.get_node("AnimationPlayer").is_playing():
+			shape.get_node("AnimationPlayer").stop()
 			flag_animation_playing = false
 		flag_current_animation = true
 

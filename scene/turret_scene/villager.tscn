@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://by6c3btxqtlc1"]
+[gd_scene load_steps=15 format=3 uid="uid://by6c3btxqtlc1"]
 
 [ext_resource type="Script" uid="uid://bhtjyq8y3y8at" path="res://scripts/scripts_turret/turret_gen.gd" id="1_hxqei"]
 [ext_resource type="Script" uid="uid://gse6evnrbad5" path="res://scripts/scripts_turret/turret_spe/villager.gd" id="1_t0tlw"]
-[ext_resource type="PackedScene" uid="uid://by28bkvf8cabk" path="res://3d_models/character/mannequin_animation.tscn" id="2_kcgi6"]
 [ext_resource type="PackedScene" uid="uid://c1gfohr2unebw" path="res://scene/HUD/upgrade_pannel.tscn" id="3_kcgi6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mid5j"]
@@ -96,15 +95,13 @@ height = 0.5
 [node name="villager" type="Node3D"]
 script = ExtResource("1_t0tlw")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="turret" type="Area3D" parent="."]
 script = ExtResource("1_hxqei")
 
-[node name="mannequin_animation" parent="Area3D" instance=ExtResource("2_kcgi6")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turret"]
 shape = SubResource("SphereShape3D_mid5j")
 
-[node name="Timer" type="Timer" parent="Area3D"]
+[node name="Timer" type="Timer" parent="turret"]
 wait_time = 0.001
 
 [node name="hit_box_joueur" type="Area3D" parent="."]
@@ -138,8 +135,8 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_85ivu")
 draw_pass_1 = SubResource("SphereMesh_sogfa")
 
-[connection signal="area_entered" from="Area3D" to="Area3D" method="_on_area_entered"]
-[connection signal="area_exited" from="Area3D" to="Area3D" method="_on_area_exited"]
-[connection signal="throw" from="Area3D" to="." method="_on_area_3d_throw"]
-[connection signal="timeout" from="Area3D/Timer" to="Area3D" method="_on_timer_timeout"]
-[connection signal="input_event" from="hit_box_joueur" to="Area3D" method="_on_hit_box_joueur_input_event"]
+[connection signal="area_entered" from="turret" to="turret" method="_on_area_entered"]
+[connection signal="area_exited" from="turret" to="turret" method="_on_area_exited"]
+[connection signal="throw" from="turret" to="." method="_on_area_3d_throw"]
+[connection signal="timeout" from="turret/Timer" to="turret" method="_on_timer_timeout"]
+[connection signal="input_event" from="hit_box_joueur" to="turret" method="_on_hit_box_joueur_input_event"]

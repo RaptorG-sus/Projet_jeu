@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://rexk52fuv4rl"]
+[gd_scene load_steps=8 format=3 uid="uid://rexk52fuv4rl"]
 
 [ext_resource type="PackedScene" uid="uid://djvt33buqnmn" path="res://3d_models/character/props_character/villager/magique/magique_cheapeau_tier2.glb" id="1_8d4dp"]
 [ext_resource type="Material" uid="uid://coi2glfpvds12" path="res://material_texture/hat_ceinture_embout.tres" id="2_8jwil"]
@@ -12,12 +12,6 @@ emission_enabled = true
 emission = Color(1, 1, 0, 1)
 emission_energy_multiplier = 9.13
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_7bwhc"]
-frequency = 0.0032
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yk56y"]
-noise = SubResource("FastNoiseLite_7bwhc")
-
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_o4kfq"]
 frequency = 0.003
 
@@ -26,7 +20,6 @@ noise = SubResource("FastNoiseLite_o4kfq")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jotpc"]
 albedo_color = Color(0, 0.00392157, 0.32549, 1)
-albedo_texture = SubResource("NoiseTexture2D_yk56y")
 normal_scale = -0.9
 normal_texture = SubResource("NoiseTexture2D_njoq2")
 rim_tint = 0.0

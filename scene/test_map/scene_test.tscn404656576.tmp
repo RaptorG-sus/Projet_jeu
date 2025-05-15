@@ -28,8 +28,11 @@ sky = SubResource("Sky_sn56u")
 ambient_light_source = 2
 ambient_light_color = Color(0.783523, 0.783523, 0.783523, 1)
 ambient_light_energy = 1.15
-ssr_fade_in = 0.819625
-sdfgi_energy = 11.74
+ssao_radius = 14.95
+ssao_power = 0.549032
+sdfgi_min_cell_size = 0.4
+sdfgi_cascade0_distance = 25.6
+sdfgi_max_distance = 409.6
 
 [node name="Scene_principal" type="Node3D"]
 script = ExtResource("1_racit")
@@ -39,7 +42,7 @@ script = ExtResource("1_racit")
 [node name="turret" type="Node3D" parent="node_joueur"]
 
 [node name="Node3D" parent="node_joueur/turret" instance=ExtResource("2_uefgs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45041, 0, -0.465815)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45041, 0, -6.05673)
 
 [node name="Projectiles" type="Node3D" parent="node_joueur"]
 
@@ -48,7 +51,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45041, 0, -0.465815)
 [node name="node_environnement" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="node_environnement"]
-transform = Transform3D(1, 0, 0, 0, 0.978896, 0.204359, 0, -0.20436, 0.978896, 0, 2.70024, 9.00832)
+transform = Transform3D(1, 0, 0, 0, -0.937889, 0.346936, 0, -0.346936, -0.937889, 0, 2.70024, 9.00832)
 light_color = Color(1, 0.682353, 0.658824, 1)
 light_energy = 4.815
 shadow_enabled = true

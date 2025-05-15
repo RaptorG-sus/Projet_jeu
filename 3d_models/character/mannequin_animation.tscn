@@ -130,6 +130,7 @@ transform = Transform3D(1, 8.07177e-10, -5.58794e-09, 9.88121e-09, 1, 1.89175e-1
 
 [node name="magique_tier2" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="30"]
 transform = Transform3D(1, -8.47377e-19, -6.88697e-18, 2.74581e-17, -7.10543e-15, 1, 2.60861e-16, -1, -1.49012e-08, -0.001159, 0.0529694, -1.79121)
+visible = false
 bone_name = "mixamorig_HeadTop_End"
 bone_idx = 6
 

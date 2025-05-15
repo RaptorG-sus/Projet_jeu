@@ -47,7 +47,11 @@ var turret_data = {
 			"damage" = 1000,
 			"attack_speed" =1.25,
 			"bullet_speed" = 30,
-			"pierce" = 1
+			"pierce" = 1,
+			"angle" = 0,
+			"bullet_number" = 1,
+			"shape" = "res://3d_models/character/mannequin_animation.tscn",
+			"projectile" = "res://scene/props/projectile.tscn"
 		},
 		#type d'amélioration
 		"magique" : {
@@ -75,7 +79,9 @@ var turret_data = {
 				"pierce" = 1
 			},
 			"tier 3":{
-				"cost" = 0
+				"cost" = 0,
+				"angle" = 15,
+				"bullet_number" = 3
 			}
 		}
 	}
