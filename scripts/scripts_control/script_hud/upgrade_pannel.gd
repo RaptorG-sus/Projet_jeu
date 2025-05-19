@@ -27,33 +27,13 @@ func _on_magique_pressed() -> void:
 	var cost = turret_gen.cost_magique
 	if cost <= $"../../../..".mana:
 		$"../../../..".mana-=cost
-		match tier_magique:
-			1:
-				upgrade_tot.upgrade_tot(turret_gen, 1, "magique" )
-#			2:
-#				$"..".upgrade_magique_tier2()
-#			3:
-#				$"..".upgrade_magique_tier3()
-#			4:
-#				$"..".upgrade_magique_tier4()
-#			5:
-#				$"..".upgrade_magique_tier5()
-#		tier_magique+=1
+		upgrade_tot.upgrade_tot(turret_gen, tier_magique, "magique" )
+		tier_magique+=1
 
 func _on_nature_pressed() -> void:
 	var cost = turret_gen.cost_nature
 	if cost <= $"../../../..".mana:
 		$"../../../..".mana-=cost
-		match tier_nature:
-			1:
-				upgrade_tot.upgrade_tot(turret_gen, 1, "nature" )
-			2:
-				upgrade_tot.upgrade_tot(turret_gen, 2, "nature" )
-			3:
-				upgrade_tot.upgrade_tot(turret_gen, 3, "nature" )
-#			4:
-#				$"..".upgrade_nature_tier4()
-#			5:
-#				$"..".upgrade_nature_tier5()
+		upgrade_tot.upgrade_tot(turret_gen, tier_nature, "nature" )
 		tier_nature+=1
 	

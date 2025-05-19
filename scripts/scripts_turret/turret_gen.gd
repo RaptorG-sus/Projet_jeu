@@ -1,7 +1,11 @@
 extends Area3D
 
+var turret_name = "villager"
+
+
 var turret_data = GameData.turret_data
 var upgrade_tot = TurretData
+var turret_Origin = TurretData.turret_Origin[turret_name]
 var turret_function = GameFunction
 var flag_menu_upgrade = false
 var flag_current_animation = true
@@ -9,32 +13,31 @@ var flag_animation_playing = false
 #var turret_name : String = $"..".turret_name
 
 # stat de la tours modifié dans turretData avec la fonction upgrade_tot
-var attack_speed
-var range_turret
-var damage 
-var pierce 
-var bullet_speed 
-var angle 
-var bullet_number 
-var shape 
-var projectile
+var attack_speed = turret_Origin["attack_speed"]
+var range_turret= turret_Origin["range_turret"]
+var damage = turret_Origin["damage"]
+var pierce = turret_Origin["pierce"]
+var bullet_speed = turret_Origin["bullet_speed"]
+var angle = turret_Origin["angle"]
+var bullet_number = turret_Origin["bullet_number"]
+var shape = turret_Origin["shape"]
+var projectile = turret_Origin["projectile"]
 
-var cost_gen
-var cost_magique
-var cost_nature
-var cost_militaire
-var cost_scientifique
+var cost_gen = turret_Origin["cost_gen"]
+var cost_magique = turret_Origin["cost_magique"]
+var cost_nature = turret_Origin["cost_nature"]
+var cost_militaire = turret_Origin["cost_militaire"]
+var cost_scientifique = turret_Origin["cost_scientifique"]
 
 signal throw
 
-@onready var turret_name = "villager" 
+ 
 
 @onready var current_enemy = null
 var liste_enemy = []
 
 # BIEN METTRE L'ANIMATION ET LE MARKER AU NOM DE BASE, SINON LE CODE NE FONCTIONNE PLUS
 func _ready() -> void:
-
 	print(self)
 	upgrade_tot.upgrade_tot(self,0)
 	print(damage)
@@ -56,16 +59,17 @@ func _process(delta: float) -> void:
 	else:
 		smooth_rotation()
 	
-	if $Timer.wait_time != attack_speed:
-		$Timer.set_wait_time(attack_speed)
 	
 	if $CollisionShape3D.shape.get_radius() != range_turret:
 		$CollisionShape3D.shape.set_radius(range_turret)
 	
+
 	if(shape.get_node("AnimationPlayer").is_playing()):
 		if(round_to_dec(shape.get_node("AnimationPlayer").get_current_animation_position(),2)>= 2.47 and flag_current_animation):
-			turret_function.throw_projectile_mod(angle,bullet_number, damage, pierce, bullet_speed, liste_enemy[0].global_position, shape.get_node("Marker3D").global_position, projectile, $"../../.."/Projectiles)
+			turret_function.throw_projectile_mod(angle,bullet_number, damage, pierce, bullet_speed, liste_enemy[0].global_position, shape.get_node("Marker3D").global_position, projectile, $"../../.."/Projectiles,"sharpnel")
 			flag_current_animation = false
+		if shape.get_node("AnimationPlayer").get_speed_scale()*attack_speed !=  shape.get_node("AnimationPlayer").get_current_animation_length():
+			shape.get_node("AnimationPlayer").set_speed_scale(shape.get_node("AnimationPlayer").get_current_animation_length()/attack_speed)
 
 	if(!shape.get_node("AnimationPlayer").is_playing() and flag_animation_playing):
 		shape.get_node("AnimationPlayer").play("Armature|mixamo_com|Layer0")
