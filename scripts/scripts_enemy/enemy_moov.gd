@@ -42,5 +42,7 @@ func retire_chiffre(nom):					# fonction pour retirer les chiffres, afin d'avoir
 	return nom_final
 		
 func _on_base_area_entered(area:Area3D) -> void:			# quand le projectile touche l'enemy et donc fait les dégats
-	vie -= area.damage
-	print(vie)
+	if not(get_child(0) in area.ban_enemy):
+		vie -= area.damage
+		print(vie)
+		area.ban_enemy.append(get_child(0))

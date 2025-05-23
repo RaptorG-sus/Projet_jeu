@@ -13,9 +13,7 @@ collision_mask = 4
 script = ExtResource("1_mc0nb")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
 one_shot = true
-autostart = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_3u0cn")

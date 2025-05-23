@@ -3,14 +3,20 @@ extends Area3D
 
 var enemy_pos :Vector3
 var parent_pos :Vector3
+var life_time
 var damage
 var pierce
 var speed
 var angle
 var flag_sharpnel
+var mode
+var ban_enemy = []
 
 func _ready() -> void:
+	print(ban_enemy)
 	await get_tree().process_frame
+	$Timer.set_wait_time(life_time)
+	$Timer.start()
 	look_at(enemy_pos)
 
 func _process(delta: float) -> void:
@@ -35,23 +41,6 @@ func vecteur_directeur(p: Vector3, e: Vector3) -> Vector3:
 
 	return vecteur_directeur
 
-func sharpnel_func():
-	var compt = 0
-	var child_projectile = load(get_scene_file_path())
-	for i in [[1,1],[-1,-1],[-1,1],[1,-1],[1,0],[-1,0],[0,1],[0,-1]]:
-		var sharpnel = child_projectile.instantiate()
-		$"..".add_child(sharpnel)
-		sharpnel.parent_pos = global_position
-		sharpnel.enemy_pos.x = global_position.x + i[0]
-		sharpnel.enemy_pos.y = global_position.y
-		sharpnel.enemy_pos.z = global_position.z + i[1]
-		sharpnel.damage = damage / 2
-		sharpnel.pierce = 1
-		sharpnel.angle = compt*45
-		sharpnel.speed = speed
-		compt += 1
-		sharpnel.flag_sharpnel = false
-
 
 func _on_timer_timeout() -> void:
 	queue_free()
@@ -59,8 +48,8 @@ func _on_timer_timeout() -> void:
 
 func _on_area_entered(area:Area3D) -> void:
 	if pierce == 1:			#inflige les dégats avant de soustraire le "pierce", donc fait faire n+1
-		if flag_sharpnel:
-			sharpnel_func()
+		match mode:
+			"sharpnel":
+				GameFunction.sharpnel_func(damage,speed,position,load(get_scene_file_path()),0.1,ban_enemy)
 		queue_free()
-		
 	pierce -= 1 
