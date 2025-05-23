@@ -49,11 +49,13 @@ func _on_pass_wave_pressed() -> void:
 				card_out.get_child(0).texture = load(liste_card[liste_generer[i]]["texture"])
 				card_out.get_node("Animation_card_out").play("card_go")
 				await (get_tree().create_timer(0.05)).timeout
+				card_out.get_node("Animation_card_out").is_playing()
 				get_parent().get_parent().spawn_card(liste_generer[i])																# appel de la fonction pour générer la carte avec la carte voulue 
-				$Shop/GridContainer.get_node("Card"+str(i+1)).get_node("AnimationSelect").play("card_unselect")
-				$Shop/GridContainer.get_node("Card"+str(i+1)).get_node("AnimationShake").stop()
+
+		$Shop.void_card_placement_shop()
+		await (get_tree().create_timer(0.5)).timeout
 		shop_down()																													# lance l'animation pour réduire le shop	
 		get_parent().get_parent().piece -= sum_price																				# retire le prix total des cartes des pièces
 		liste_buyed = [0,0,0,0,0,0]																									# remet à 0 les vérifications 
-		await (get_tree().create_timer(3, false)).timeout																			# lance un timer pour attendre 3 seconde
+		await (get_tree().create_timer(2, false)).timeout																			# lance un timer pour attendre 3 seconde
 		$"../..".spawn_enemy()																										# lance la prochaine vague

@@ -15,7 +15,9 @@ var acc_card = 0
 func genere_card():
 	liste_generer = []						# initialise les différentes listes
 	liste_price = []
+	liste_card_out = []
 	flag_liste_card_out_pass = false
+	acc_card = 0
 	var liste :Array = card_data.keys()		# La liste des noms des cards
 	for i in range(6):
 		liste_generer.append(liste[randi_range(0,len(liste)-1)])						# sélectionne une carte de façon aléatoire dans les cartes existente
@@ -57,3 +59,7 @@ func card_unplacement_shop(pos):
 	liste_card_out.erase(erase_liste_element)
 	flag_liste_card_out_pass = false
 			
+func void_card_placement_shop():
+	for i in liste_card_out:
+		i[1].queue_free()
+	liste_card_out = []
