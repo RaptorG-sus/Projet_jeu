@@ -16,15 +16,17 @@ func _on_pressed() -> void:
 		$".."/card_label.text = card_data[liste_generer[number_card]]["text"] + ' ' + str(liste_price[number_card])
 		$"../../../..".sum_price -= liste_price[number_card]
 		$"../../.."/tot_price.text = str($"../../../..".sum_price)
-		$".."/AnimationSelect.play("card_unselect")
-		$".."/AnimationShake.stop()
+		$"../../..".card_unplacement_shop(number_card)
+		"""$".."/AnimationSelect.play("card_unselect")
+		$".."/AnimationShake.stop()"""
 
 	else:
 		liste_buyed[number_card] = 1
 		$".."/card_label.text = "buyed"
 		$"../../../..".sum_price += liste_price[number_card]
 		$"../../.."/tot_price.text = str($"../../../..".sum_price)
-		$".."/AnimationSelect.play("card_select")
-		$".."/AnimationShake.play("shake")
+		$"../../..".card_placement_shop(self.icon, number_card)
+		"""$".."/AnimationSelect.play("card_select")
+		$".."/AnimationShake.play("shake")"""
 
 	print(liste_buyed)

@@ -46,8 +46,9 @@ func _on_pass_wave_pressed() -> void:
 			if liste_buyed[i]:																										# vérifie si la carte est acheté, si oui génére la carte dans le deck
 				var card_out = card_obtain.instantiate()
 				$Shop/card_obtain_dir.add_child(card_out)
-				card_out.get_child(0).texture = liste_card[liste_generer[i]]["texture"]
-				$Shop/card_obtain_dir/Animation_obtain_card.play("card_go")
+				card_out.get_child(0).texture = load(liste_card[liste_generer[i]]["texture"])
+				card_out.get_node("Animation_card_out").play("card_go")
+				await (get_tree().create_timer(0.05)).timeout
 				get_parent().get_parent().spawn_card(liste_generer[i])																# appel de la fonction pour générer la carte avec la carte voulue 
 				$Shop/GridContainer.get_node("Card"+str(i+1)).get_node("AnimationSelect").play("card_unselect")
 				$Shop/GridContainer.get_node("Card"+str(i+1)).get_node("AnimationShake").stop()
