@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1xmfccxyb4u0"]
+
+[ext_resource type="PackedScene" uid="uid://b6jaxjk2r4rxe" path="res://3d_models/character/props_character/cannon/blender/militaire/cannon_militaire_tier1.glb" id="1_kv5eb"]
+[ext_resource type="Material" uid="uid://ddkxb1h4we8ks" path="res://3d_models/character/props_character/cannon/texture/texture_pic_cannon.tres" id="2_f5ujn"]
+
+[node name="cannon_militaire_tier1" instance=ExtResource("1_kv5eb")]
+
+[node name="cannon_pic" parent="." index="0"]
+material_override = ExtResource("2_f5ujn")

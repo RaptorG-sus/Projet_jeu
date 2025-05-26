@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ci3t7o5schhh1"
-path="res://.godot/imported/cannon.glb-4fa6e3b3a9e4521348d9da2871d4b046.scn"
+uid="uid://by4agik7qy1ql"
+path="res://.godot/imported/cannon_militaire_tier3.glb-ebb9c1f22df0ae7a4a67512c0e810ed9.scn"
 
 [deps]
 
-source_file="res://3d_models/character/props_character/cannon/cannon.glb"
-dest_files=["res://.godot/imported/cannon.glb-4fa6e3b3a9e4521348d9da2871d4b046.scn"]
+source_file="res://3d_models/character/props_character/cannon/blender/militaire/cannon_militaire_tier3.glb"
+dest_files=["res://.godot/imported/cannon_militaire_tier3.glb-ebb9c1f22df0ae7a4a67512c0e810ed9.scn"]
 
 [params]
 

@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://bww2ddlypavu"]
+
+[ext_resource type="PackedScene" uid="uid://day5m865rwlww" path="res://3d_models/character/props_character/cannon/blender/militaire/cannon_militaire_tier2.glb" id="1_fwcni"]
+[ext_resource type="Material" uid="uid://bcdmwcc4taug0" path="res://3d_models/character/props_character/cannon/texture/texture_cannon_origin.tres" id="2_gt0sd"]
+[ext_resource type="Material" uid="uid://c4bef1v61ki13" path="res://3d_models/character/props_character/cannon/texture/texture_interieur_cannon.tres" id="3_35kx8"]
+[ext_resource type="Material" uid="uid://bcra6bw8vclhs" path="res://3d_models/character/props_character/cannon/texture/texture_anneau_viseur.tres" id="4_cihle"]
+[ext_resource type="Material" uid="uid://8njrmicc3mcc" path="res://3d_models/character/props_character/cannon/texture/texture_viseur.tres" id="5_f4iu4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30lcx"]
+albedo_color = Color(0.332973, 0.205979, 0.0405413, 1)
+
+[node name="cannon_militaire_tier2" instance=ExtResource("1_fwcni")]
+
+[node name="cannon_cannon" parent="." index="0"]
+material_override = ExtResource("2_gt0sd")
+
+[node name="cannon_interieur" parent="." index="1"]
+material_override = ExtResource("3_35kx8")
+
+[node name="cannon_anneau_viseur" parent="." index="2"]
+material_override = ExtResource("4_cihle")
+
+[node name="cannon_viseur" parent="." index="3"]
+material_override = ExtResource("5_f4iu4")
+
+[node name="cannon_support_viseur" parent="." index="4"]
+material_override = SubResource("StandardMaterial3D_30lcx")
