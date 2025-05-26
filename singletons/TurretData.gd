@@ -14,7 +14,27 @@ var turret_Origin = {
 		"pierce" = 1,
 		"angle" = 0,
 		"bullet_number" = 1,
+		"index_animation" = 0,
+		"throw_length_animation" = 2.47, 		
 		"shape" = load("res://3d_models/character/mannequin_animation.tscn"),
+		"projectile" =load("res://scene/props/Projectiles/projectile.tscn")
+	},
+	"cannon":{
+		"cost_gen" = 200,
+		"cost_magique" = 200,
+		"cost_nature" = 100,
+		"cost_militaire" = 0, #à décider
+		"cost_scientifique" = 0,
+		"range_turret" = 5,
+		"damage" = 1000,
+		"attack_speed" = 1,
+		"bullet_speed" = 30,
+		"pierce" = 1,
+		"angle" = 0,
+		"bullet_number" = 1,
+		"index_animation" = 0,
+		"throw_length_animation" = 0.5,
+		"shape" = load("res://3d_models/character/props_character/cannon/scene/cannon.tscn"),
 		"projectile" =load("res://scene/props/Projectiles/projectile.tscn")
 	}
 }

@@ -1,32 +1,41 @@
 [gd_scene load_steps=8 format=3 uid="uid://blij30ayri437"]
 
 [ext_resource type="PackedScene" uid="uid://ci3t7o5schhh1" path="res://3d_models/character/props_character/cannon/blender/cannon.glb" id="1_7x1d7"]
-[ext_resource type="Material" uid="uid://cr2oo53xaacmf" path="res://3d_models/character/props_character/cannon/texture/texture_plateforme_cannon_origin.tres" id="2_bw4cn"]
 [ext_resource type="PackedScene" uid="uid://bww2ddlypavu" path="res://3d_models/character/props_character/cannon/scene/militaire/cannon_militaire_tier_2.tscn" id="3_q4i2w"]
 [ext_resource type="Material" uid="uid://bcdmwcc4taug0" path="res://3d_models/character/props_character/cannon/texture/texture_cannon_origin.tres" id="3_qeveg"]
 [ext_resource type="PackedScene" uid="uid://b1xmfccxyb4u0" path="res://3d_models/character/props_character/cannon/scene/militaire/cannon_militaire_tier_1.tscn" id="4_bw4cn"]
 [ext_resource type="Material" uid="uid://c4bef1v61ki13" path="res://3d_models/character/props_character/cannon/texture/texture_interieur_cannon.tres" id="4_q4i2w"]
-[ext_resource type="Material" uid="uid://cjfmf6i7e6k6b" path="res://3d_models/character/props_character/cannon/texture/texture_plateforme_cannon_origin_2.tres" id="5_uawrg"]
+
+[sub_resource type="Animation" id="Animation_qeveg"]
+resource_name = "cannon_tier0"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q4i2w"]
+_data = {
+&"cannon_tier0": SubResource("Animation_qeveg")
+}
 
 [node name="cannon" instance=ExtResource("1_7x1d7")]
 
 [node name="militaire_tier1" parent="." index="0" instance=ExtResource("4_bw4cn")]
 transform = Transform3D(1.01206, 0, 0, 0, 1.01206, 0, 0, 0, 1.01206, 0, -0.0143062, 0)
+visible = false
 
 [node name="cannon_militaire_tier2" parent="." index="1" instance=ExtResource("3_q4i2w")]
-
-[node name="plateforme_cannon" parent="." index="2"]
-material_override = ExtResource("2_bw4cn")
-
-[node name="cannon_cannon" parent="." index="3"]
 visible = false
+
+[node name="cannon_cannon" parent="." index="2"]
 material_override = ExtResource("3_qeveg")
 
-[node name="cannon_base" parent="." index="4"]
+[node name="cannon_base" parent="." index="3"]
 material_override = ExtResource("3_qeveg")
 
-[node name="cannon_interieur" parent="." index="5"]
+[node name="cannon_interieur" parent="." index="4"]
 material_override = ExtResource("4_q4i2w")
 
-[node name="plateforme_cannon_001" parent="." index="6"]
-material_override = ExtResource("5_uawrg")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+&"": SubResource("AnimationLibrary_q4i2w")
+}
+
+[node name="Marker3D" type="Marker3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15429, 0.582115, 0)

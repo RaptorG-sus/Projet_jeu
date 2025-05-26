@@ -84,6 +84,20 @@ var turret_data = {
 				"bullet_number" = 3
 			}
 		}
+	},
+
+	"cannon":{
+		"base":{
+			"range" = 5,
+			"damage" = 1000,
+			"attack_speed" =1.25,
+			"bullet_speed" = 30,
+			"pierce" = 1,
+			"angle" = 0,
+			"bullet_number" = 1,
+			"shape" = "res://3d_models/character/props_character/cannon/scene/cannon.tscn",
+			"projectile" = "res://scene/props/projectile.tscn"
+		}
 	}
 }
 

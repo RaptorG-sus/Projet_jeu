@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyyq5yutxx6jp"]
+
+[ext_resource type="PackedScene" uid="uid://jeddx1q5nct7" path="res://3d_models/character/props_character/cannon/blender/plateforme_cannon.glb" id="1_vl770"]
+[ext_resource type="Material" uid="uid://cr2oo53xaacmf" path="res://3d_models/character/props_character/cannon/texture/texture_plateforme_cannon_origin.tres" id="2_3nttd"]
+[ext_resource type="Material" uid="uid://cjfmf6i7e6k6b" path="res://3d_models/character/props_character/cannon/texture/texture_plateforme_cannon_origin_2.tres" id="3_y4ran"]
+
+[node name="plateforme_cannon2" instance=ExtResource("1_vl770")]
+
+[node name="plateforme_cannon" parent="." index="0"]
+material_override = ExtResource("2_3nttd")
+
+[node name="plateforme_cannon_001" parent="." index="1"]
+material_override = ExtResource("3_y4ran")

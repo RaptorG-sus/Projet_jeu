@@ -14,6 +14,7 @@ script = ExtResource("1_872qj")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="projectile_villager_nature_tier2" parent="." instance=ExtResource("1_xy6tx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.202544, 0, 0, 0, -9.04451e-09, -0.213348, 0, 0.206914, -9.32574e-09, 0, 0, -0.024997)

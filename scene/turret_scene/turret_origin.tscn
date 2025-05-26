@@ -137,6 +137,5 @@ draw_pass_1 = SubResource("SphereMesh_sogfa")
 
 [connection signal="area_entered" from="turret" to="turret" method="_on_area_entered"]
 [connection signal="area_exited" from="turret" to="turret" method="_on_area_exited"]
-[connection signal="throw" from="turret" to="." method="_on_area_3d_throw"]
 [connection signal="timeout" from="turret/Timer" to="turret" method="_on_timer_timeout"]
 [connection signal="input_event" from="hit_box_joueur" to="turret" method="_on_hit_box_joueur_input_event"]

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ci3t7o5schhh1"
-path="res://.godot/imported/cannon.glb-8d4a472251a2d980bb0779d172135da5.scn"
+uid="uid://jeddx1q5nct7"
+path="res://.godot/imported/plateforme_cannon.glb-30f1627b86c5db053bc7d543742b2cfa.scn"
 
 [deps]
 
-source_file="res://3d_models/character/props_character/cannon/blender/cannon.glb"
-dest_files=["res://.godot/imported/cannon.glb-8d4a472251a2d980bb0779d172135da5.scn"]
+source_file="res://3d_models/character/props_character/cannon/blender/plateforme_cannon.glb"
+dest_files=["res://.godot/imported/plateforme_cannon.glb-30f1627b86c5db053bc7d543742b2cfa.scn"]
 
 [params]
 
@@ -46,10 +46,13 @@ _subresources={
 "PATH:Sphère_003": {
 "import/skip_import": true
 },
-"PATH:plateforme_cannon": {
+"PATH:cannon_base": {
 "import/skip_import": true
 },
-"PATH:plateforme_cannon_001": {
+"PATH:cannon_cannon": {
+"import/skip_import": true
+},
+"PATH:cannon_interieur": {
 "import/skip_import": true
 }
 }

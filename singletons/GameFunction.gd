@@ -33,3 +33,19 @@ func sharpnel_func(damage,speed,pos_origin,child_projectile,life_time,ban_enemy)
 		sharpnel.speed = speed
 		sharpnel.life_time = life_time
 		sharpnel.ban_enemy = ban_enemy
+
+func turret_look_at(turret, enemy_pos):
+	var turret_name = turret.turret_name
+	print(turret_name)
+	match turret_name:
+		"villager":
+			turret.look_at(enemy_pos)
+			turret.rotation.x = 0
+			turret.rotation.z = 0
+		"cannon":
+			turret.get_node("cannon").look_at(enemy_pos)
+			turret.get_node("cannon").get_node("plateforme_cannon").rotation.y = 0
+			turret.get_node("cannon").get_node("plateforme_cannon_001").rotation.y = 0
+			turret.get_node("cannon").rotation.x = 0
+			turret.get_node("cannon").rotation.z = 0
+		

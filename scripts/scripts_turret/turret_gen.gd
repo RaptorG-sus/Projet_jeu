@@ -1,6 +1,6 @@
 extends Area3D
 
-var turret_name = "villager"
+var turret_name = "cannon"
 
 
 var turret_data = GameData.turret_data
@@ -29,9 +29,8 @@ var cost_nature = turret_Origin["cost_nature"]
 var cost_militaire = turret_Origin["cost_militaire"]
 var cost_scientifique = turret_Origin["cost_scientifique"]
 
-signal throw
-
- 
+var index_animation = turret_Origin["index_animation"]
+var throw_length_animation = turret_Origin["throw_length_animation"]
 
 @onready var current_enemy = null
 var liste_enemy = []
@@ -53,9 +52,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if len(liste_enemy) != 0:
-		look_at(liste_enemy[0].global_position)
-		rotation.x = 0
-		rotation.z = 0
+		turret_function.turret_look_at(self,liste_enemy[0].global_position)							#Similaire au look at mais plus complexe pour faire du cas par cas (dans le game function à changé au besoin)
 	else:
 		smooth_rotation()
 	
@@ -63,16 +60,16 @@ func _process(delta: float) -> void:
 	if $CollisionShape3D.shape.get_radius() != range_turret:
 		$CollisionShape3D.shape.set_radius(range_turret)
 	
-
 	if(shape.get_node("AnimationPlayer").is_playing()):
-		if(round_to_dec(shape.get_node("AnimationPlayer").get_current_animation_position(),2)>= 2.47 and flag_current_animation):
+		
+		if(round_to_dec(shape.get_node("AnimationPlayer").get_current_animation_position(),2)>= throw_length_animation and flag_current_animation):
 			turret_function.throw_projectile_mod(angle,bullet_number, damage, pierce, bullet_speed, liste_enemy[0].global_position, shape.get_node("Marker3D").global_position, projectile, $"../../.."/Projectiles,"sharpnel",1)
 			flag_current_animation = false
 		if shape.get_node("AnimationPlayer").get_speed_scale()*attack_speed !=  shape.get_node("AnimationPlayer").get_current_animation_length():
 			shape.get_node("AnimationPlayer").set_speed_scale(shape.get_node("AnimationPlayer").get_current_animation_length()/attack_speed)
 
 	if(!shape.get_node("AnimationPlayer").is_playing() and flag_animation_playing):
-		shape.get_node("AnimationPlayer").play("Armature|mixamo_com|Layer0")
+		shape.get_node("AnimationPlayer").play(shape.get_node("AnimationPlayer").get_animation_list()[index_animation])
 		flag_current_animation = true
 		
 func smooth_rotation() -> void:

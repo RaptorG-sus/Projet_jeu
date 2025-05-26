@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cs2oamsgeblek"]
 
-[ext_resource type="PackedScene" uid="uid://by6c3btxqtlc1" path="res://scene/turret_scene/villager.tscn" id="1_l2i1a"]
+[ext_resource type="PackedScene" uid="uid://by6c3btxqtlc1" path="res://scene/turret_scene/turret_origin.tscn" id="1_l2i1a"]
 [ext_resource type="Script" uid="uid://brb2hdwrhu2wj" path="res://scripts/script debug/scene_debug_tire.gd" id="1_rtomu"]
 [ext_resource type="PackedScene" uid="uid://4fsvivaac1s1" path="res://scene/props/camera.tscn" id="2_rtomu"]
 
