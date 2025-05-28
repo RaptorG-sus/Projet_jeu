@@ -43,7 +43,6 @@ func _ready() -> void:
 
 	shape = shape.instantiate()
 	add_child(shape)
-	rotate_y(180)
 	
 
 	$".".input_ray_pickable = false
@@ -62,9 +61,13 @@ func _process(delta: float) -> void:
 	
 	if(shape.get_node("AnimationPlayer").is_playing()):
 		
-		if(round_to_dec(shape.get_node("AnimationPlayer").get_current_animation_position(),2)>= throw_length_animation and flag_current_animation):
-			turret_function.throw_projectile_mod(angle,bullet_number, damage, pierce, bullet_speed, liste_enemy[0].global_position, shape.get_node("Marker3D").global_position, projectile, $"../../.."/Projectiles,"sharpnel",1)
-			flag_current_animation = false
+		if(round_to_dec(shape.get_node("AnimationPlayer").get_current_animation_position(),2)>= throw_length_animation and flag_current_animation and len(liste_enemy) > 0):
+			print(GameFunction.find_node(self,"Marker3D"))
+			var dir_node_projectile = GameFunction.find_node(self,"Marker3D")
+			if dir_node_projectile[1]:
+				print(self.get_path_to($Marker3D))
+				turret_function.throw_projectile_mod(angle,bullet_number, damage, pierce, bullet_speed, liste_enemy[0].global_position, get_node(str(dir_node_projectile[0])).global_position, projectile, $"../../.."/Projectiles,"sharpnel",1)
+				flag_current_animation = false
 		if shape.get_node("AnimationPlayer").get_speed_scale()*attack_speed !=  shape.get_node("AnimationPlayer").get_current_animation_length():
 			shape.get_node("AnimationPlayer").set_speed_scale(shape.get_node("AnimationPlayer").get_current_animation_length()/attack_speed)
 

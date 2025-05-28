@@ -1,5 +1,25 @@
 extends Node
 
+func find_node(origin, node_dir):
+	var flag_func
+	var str_func
+	var func_out
+	if str(origin.name) == str(node_dir):
+		return ["",true]
+	elif len(origin.get_children()) == 0:
+		return ["",false]
+	else:
+		for i in (origin.get_children()):
+			print(i)
+			func_out = find_node(i,node_dir)
+			str_func = func_out[0]
+			flag_func = func_out[1]
+			if flag_func:
+				return [str(i.name) + '/' + str_func,true]
+
+	return ["",false]
+
+
 func throw_projectile_mod(angle, number, damage, pierce, bullet_speed, enemy_pos, origin_pos, projectile, projectile_node, mode, life_time):
 	var angle_depart = (angle*(number-1))/2
 	for i in range(number):
@@ -36,16 +56,13 @@ func sharpnel_func(damage,speed,pos_origin,child_projectile,life_time,ban_enemy)
 
 func turret_look_at(turret, enemy_pos):
 	var turret_name = turret.turret_name
-	print(turret_name)
 	match turret_name:
 		"villager":
 			turret.look_at(enemy_pos)
 			turret.rotation.x = 0
 			turret.rotation.z = 0
 		"cannon":
-			turret.get_node("cannon").look_at(enemy_pos)
-			turret.get_node("cannon").get_node("plateforme_cannon").rotation.y = 0
-			turret.get_node("cannon").get_node("plateforme_cannon_001").rotation.y = 0
-			turret.get_node("cannon").rotation.x = 0
-			turret.get_node("cannon").rotation.z = 0
+			turret.get_node("cannon").get_node("cannon_sup").look_at(enemy_pos)
+			turret.get_node("cannon").get_node("cannon_sup").rotation.x = 0
+			turret.get_node("cannon").get_node("cannon_sup").rotation.z = 0
 		
